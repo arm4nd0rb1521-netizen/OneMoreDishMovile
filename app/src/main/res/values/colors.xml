@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Paleta de la web (general.css) -->
+    <color name="vino">#7A1F4E</color>
+    <color name="rosa_principal">#D4679B</color>
+    <color name="rosa_claro">#F3D3DC</color>
+    <color name="rosa_fondo">#FDF0EE</color>
+    <color name="rosa_header">#F8E6E8</color>
+    <color name="texto">#5A2140</color>
+    <color name="blanco_suave">#FFF6F5</color>
+
+    <!-- Tomados del look and feel de Android (PDF) -->
+    <color name="boton">#BC4B82</color>
+    <color name="hoja">#FBF0EE</color>
+    <color name="texto_suave">#8A5A74</color>
+    <color name="borde_campo">#A88596</color>
+    <color name="borde_boton_contorno">#E3C8D2</color>
+    <color name="tarjeta_rol">#FCEFF2</color>
+    <color name="hero_arriba">#E8B48A</color>
+    <color name="hero_abajo">#C98A5E</color>
+    <color name="circulo_crema">#EFD9A6</color>
+    <color name="circulo_rojo">#E5553F</color>
+    <color name="circulo_rojo_oscuro">#D94A3A</color>
+
+    <!-- Estados de mesa (se usan en los siguientes pasos) -->
+    <color name="mesa_libre">#9DA87D</color>
+    <color name="mesa_ocupada">#EF7A91</color>
+    <color name="mesa_sucia">#F2B866</color>
+    <color name="mesa_reservada">#B99CD1</color>
+
+    <color name="ok_verde">#2D6A45</color>
+    <color name="error">#9B2C2C</color>
+    <color name="blanco">#FFFFFF</color>
+    <color name="transparente">#00000000</color>
+    <!-- Paso 2: tonos claros por estado, botón tonal y barra inferior -->
+    <color name="boton_tonal">#F7CFE3</color>
+    <color name="indicador_nav">#F3C6DC</color>
+    <color name="mesa_libre_claro">#DDE5C6</color>
+    <color name="mesa_libre_texto">#3F4A22</color>
+    <color name="mesa_ocupada_claro">#F8CFD8</color>
+    <color name="mesa_ocupada_texto">#7A1F4E</color>
+    <color name="mesa_sucia_claro">#F9E1B5</color>
+    <color name="mesa_sucia_texto">#6B4A10</color>
+    <color name="mesa_reservada_claro">#E6DAF0</color>
+    <color name="mesa_reservada_texto">#4B2E6B</color>
+</resources>

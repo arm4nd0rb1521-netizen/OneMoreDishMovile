@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipToPadding="false"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <include
+            layout="@layout/tarjeta_ocupacion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            style="@style/Omd.Seccion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="22dp"
+            android:text="@string/mapa_mesas" />
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="8dp"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/Omd.Leyenda"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="0dp"
+                    android:backgroundTint="@color/mesa_libre_claro"
+                    android:text="Libre"
+                    android:textColor="@color/mesa_libre_texto" />
+
+                <TextView
+                    style="@style/Omd.Leyenda"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:backgroundTint="@color/mesa_ocupada_claro"
+                    android:text="Ocupada"
+                    android:textColor="@color/mesa_ocupada_texto" />
+
+                <TextView
+                    style="@style/Omd.Leyenda"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:backgroundTint="@color/mesa_sucia_claro"
+                    android:text="Sucia"
+                    android:textColor="@color/mesa_sucia_texto" />
+
+                <TextView
+                    style="@style/Omd.Leyenda"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:backgroundTint="@color/mesa_reservada_claro"
+                    android:text="Reservada"
+                    android:textColor="@color/mesa_reservada_texto" />
+            </LinearLayout>
+        </HorizontalScrollView>
+
+        <GridLayout
+            android:id="@+id/grid_mesas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:columnCount="3" />
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

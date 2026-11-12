@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--
+      TIPOGRAFIA: tu web usa Lora (titulos) y Poppins (texto).
+      Mientras agregas las fuentes, se usan serif / sans-serif.
+      Cuando las tengas, cambia SOLO estas dos lineas:
+          serif       ->  @font/lora
+          sans-serif  ->  @font/poppins
+    -->
+    <style name="Omd.Titulo" parent="">
+        <item name="android:fontFamily">serif</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/vino</item>
+        <item name="android:textSize">28sp</item>
+        <item name="android:lineSpacingMultiplier">1.05</item>
+    </style>
+
+    <style name="Omd.Texto" parent="">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textColor">@color/texto</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:lineSpacingMultiplier">1.15</item>
+    </style>
+
+    <style name="Omd.Etiqueta" parent="Omd.Texto">
+        <item name="android:textColor">@color/texto_suave</item>
+        <item name="android:textSize">13sp</item>
+    </style>
+
+    <style name="Omd.Enlace" parent="Omd.Texto">
+        <item name="android:textColor">@color/boton</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:padding">8dp</item>
+    </style>
+
+    <style name="Omd.Boton" parent="Widget.Material3.Button">
+        <item name="android:layout_height">56dp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textColor">@color/blanco</item>
+        <item name="backgroundTint">@color/boton</item>
+        <item name="cornerRadius">28dp</item>
+    </style>
+
+    <style name="Omd.Boton.Contorno" parent="Widget.Material3.Button.OutlinedButton">
+        <item name="android:layout_height">56dp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textColor">@color/boton</item>
+        <item name="strokeColor">@color/borde_boton_contorno</item>
+        <item name="cornerRadius">28dp</item>
+    </style>
+
+    <style name="Omd.Campo" parent="Widget.Material3.TextInputLayout.OutlinedBox">
+        <item name="boxStrokeColor">@color/campo_borde</item>
+        <item name="boxStrokeErrorColor">@color/error</item>
+        <item name="hintTextColor">@color/texto_suave</item>
+        <item name="android:textColorHint">@color/texto_suave</item>
+        <item name="boxCornerRadiusTopStart">12dp</item>
+        <item name="boxCornerRadiusTopEnd">12dp</item>
+        <item name="boxCornerRadiusBottomStart">12dp</item>
+        <item name="boxCornerRadiusBottomEnd">12dp</item>
+        <item name="endIconTint">@color/texto_suave</item>
+    </style>
+
+    <style name="Omd.Campo.Texto" parent="Widget.Material3.TextInputEditText.OutlinedBox">
+        <item name="android:textColor">@color/texto</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <style name="Omd.Casilla" parent="Widget.Material3.CompoundButton.CheckBox">
+        <item name="buttonTint">@color/boton</item>
+        <item name="android:textColor">@color/texto</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+    <!-- Paso 2 -->
+    <style name="Omd.Seccion" parent="Omd.Etiqueta">
+        <item name="android:textColor">@color/boton</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:letterSpacing">0.06</item>
+    </style>
+
+    <style name="Omd.Leyenda" parent="Omd.Texto">
+        <item name="android:background">@drawable/bg_pastilla</item>
+        <item name="android:paddingStart">12dp</item>
+        <item name="android:paddingEnd">12dp</item>
+        <item name="android:paddingTop">5dp</item>
+        <item name="android:paddingBottom">5dp</item>
+        <item name="android:textSize">13sp</item>
+    </style>
+
+    <style name="Omd.Boton.Tonal" parent="Widget.Material3.Button.TonalButton">
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textColor">@color/vino</item>
+        <item name="backgroundTint">@color/boton_tonal</item>
+        <item name="iconTint">@color/vino</item>
+        <item name="cornerRadius">26dp</item>
+    </style>
+
+    <style name="Omd.Chip" parent="Widget.Material3.Chip.Filter">
+        <item name="chipBackgroundColor">@color/chip_fondo</item>
+        <item name="chipStrokeColor">@color/borde_boton_contorno</item>
+        <item name="chipStrokeWidth">1dp</item>
+        <item name="chipCornerRadius">12dp</item>
+        <item name="checkedIconTint">@color/vino</item>
+        <item name="android:textColor">@color/vino</item>
+    </style>
+
+    <style name="Omd.Indicador" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
+        <item name="android:color">@color/indicador_nav</item>
+    </style>
+
+    <style name="Omd.HojaTema" parent="ThemeOverlay.Material3.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/Omd.Hoja</item>
+    </style>
+
+    <style name="Omd.Hoja" parent="Widget.Material3.BottomSheet.Modal">
+        <item name="backgroundTint">@color/blanco_suave</item>
+    </style>
+</resources>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/raiz"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/rosa_fondo"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/barra"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/rosa_header"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="16dp"
+        android:paddingTop="12dp"
+        android:paddingEnd="8dp"
+        android:paddingBottom="12dp">
+
+        <FrameLayout
+            android:layout_width="34dp"
+            android:layout_height="34dp"
+            android:background="@drawable/circulo_rojo"
+            android:backgroundTint="@color/rosa_principal">
+
+            <ImageView
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_gravity="center"
+                android:importantForAccessibility="no"
+                android:src="@drawable/ic_cubiertos"
+                android:tint="@color/blanco" />
+        </FrameLayout>
+
+        <TextView
+            style="@style/Omd.Titulo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_weight="1"
+            android:text="@string/admin_resumen_titulo"
+            android:textSize="20sp" />
+
+        <ImageButton
+            android:id="@+id/btn_salir"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/cerrar_sesion"
+            android:src="@drawable/ic_logout" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/contenido"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <TextView
+            style="@style/Omd.Titulo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/admin_bienvenido"
+            android:textSize="34sp"
+            android:textStyle="bold|italic" />
+
+        <TextView
+            style="@style/Omd.Texto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/admin_resumen_texto" />
+
+        <TextView
+            android:id="@+id/txt_pendiente"
+            style="@style/Omd.Etiqueta"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp" />
+    </LinearLayout>
+</LinearLayout>

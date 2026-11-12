@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/mas_domicilio" android:title="@string/mas_domicilio" />
+    <item android:id="@+id/mas_personal" android:title="@string/mas_personal" />
+    <item android:id="@+id/mas_cocina" android:title="@string/mas_cocina" />
+    <item android:id="@+id/mas_proveedores" android:title="@string/mas_proveedores" />
+</menu>

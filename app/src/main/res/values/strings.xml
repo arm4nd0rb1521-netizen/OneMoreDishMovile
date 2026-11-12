@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">One More Dish</string>
+    <string name="logo_arriba">one more</string>
+    <string name="logo_abajo">dish</string>
+
+    <!-- Bienvenida -->
+    <string name="bienvenida_titulo">Tu restaurante,\nen un solo lugar</string>
+    <string name="bienvenida_texto">Pide a domicilio, reserva tu mesa o gestiona la operación del restaurante.</string>
+    <string name="para_cada_persona">Para cada persona</string>
+    <string name="iniciar_sesion">Iniciar sesión</string>
+    <string name="crear_cuenta">Crear cuenta</string>
+
+    <!-- Login -->
+    <string name="login_titulo">Bienvenido de vuelta</string>
+    <string name="login_texto">Inicia sesión para pedir a domicilio, reservar mesa y ver tus pedidos.</string>
+    <string name="correo">Correo electrónico</string>
+    <string name="contrasena">Contraseña</string>
+    <string name="mantener_sesion">Mantener sesión</string>
+    <string name="olvidaste">¿Olvidaste tu contraseña?</string>
+    <string name="sin_cuenta">¿Aún no tienes cuenta?</string>
+    <string name="registrate">Regístrate</string>
+    <string name="entrando">Entrando…</string>
+
+    <!-- Registro -->
+    <string name="registro_titulo">Crea tu cuenta</string>
+    <string name="registro_texto">Regístrate para pedir a domicilio y guardar tus platillos favoritos.</string>
+    <string name="nombre_completo">Nombre completo</string>
+    <string name="telefono">Teléfono</string>
+    <string name="confirmar_contrasena">Confirmar contraseña</string>
+    <string name="acepto_terminos">Acepto los términos y condiciones</string>
+    <string name="ya_tienes_cuenta">¿Ya tienes cuenta?</string>
+    <string name="creando">Creando cuenta…</string>
+
+    <!-- Errores de formulario -->
+    <string name="err_correo">Ingresa un correo válido</string>
+    <string name="err_contrasena_vacia">Escribe tu contraseña</string>
+    <string name="err_nombre">Escribe tu nombre</string>
+    <string name="err_telefono">El teléfono debe tener 10 dígitos</string>
+    <string name="err_contrasena_corta">Mínimo 8 caracteres</string>
+    <string name="err_no_coinciden">Las contraseñas no coinciden</string>
+    <string name="err_terminos">Debes aceptar los términos y condiciones</string>
+    <string name="proximamente">Próximamente</string>
+    <string name="cuenta_creada">Cuenta creada. Ya puedes iniciar sesión</string>
+    <string name="vista_pendiente">La vista de %1$s se construye en un siguiente paso</string>
+
+    <!-- Admin (marcador del paso 1) -->
+    <string name="admin_resumen_titulo">Resumen de hoy</string>
+    <string name="admin_bienvenido">¡Bienvenido!</string>
+    <string name="admin_resumen_texto">Aquí tienes el resumen de la actividad de hoy.</string>
+    <string name="admin_pendiente">Sesión iniciada como %1$s.\nEl resumen, el mapa de mesas y la barra inferior se construyen en el paso 2.</string>
+    <string name="cerrar_sesion">Cerrar sesión</string>
+
+    <!-- Paso 2: contenedor con barra inferior, inicio admin y mesas -->
+    <string name="nav_inicio">Inicio</string>
+    <string name="nav_menu">Menú</string>
+    <string name="nav_mesas">Mesas</string>
+    <string name="nav_ventas">Ventas</string>
+    <string name="nav_mas">Más</string>
+    <string name="titulo_menu">Menú de platillos</string>
+    <string name="titulo_mesas">Mesas</string>
+    <string name="titulo_ventas">Ventas</string>
+    <string name="titulo_mas">Más opciones</string>
+    <string name="mesas_ocupadas">Mesas ocupadas</string>
+    <string name="porcentaje_ocupado">%1$d%% ocupado</string>
+    <string name="mapa_mesas">Mapa de mesas</string>
+    <string name="platillos">Platillos</string>
+    <string name="mesa_n">Mesa %1$d</string>
+    <string name="cambiar_estado">Cambiar estado</string>
+    <string name="pedido">Pedido</string>
+    <string name="total">Total</string>
+    <string name="sin_pedido">Esta mesa no tiene pedido abierto.</string>
+    <string name="agregar_platillo">Agregar platillo</string>
+    <string name="agregar_al_pedido">Agregar al pedido</string>
+    <string name="platillo_agregado">Platillo agregado a la mesa</string>
+    <string name="pendiente_texto">Esta sección se construye en el siguiente paso.</string>
+
+    <!-- Menú de platillos -->
+    <string name="buscar_platillo">Buscar platillo…</string>
+    <string name="un_platillo">1 platillo</string>
+    <string name="n_platillos">%1$d platillos</string>
+    <string name="menu_vacio">Aún no hay platillos. ¡Agrega el primero!</string>
+    <string name="menu_sin_resultados">No encontramos platillos con ese nombre.</string>
+    <string name="modificar_platillo">✏️ Modificar platillo</string>
+    <string name="eliminar_platillo">🗑 Eliminar platillo</string>
+    <string name="confirmar_eliminar">¿Eliminar \"%1$s\" del menú?</string>
+    <string name="eliminar">Eliminar</string>
+    <string name="cancelar">Cancelar</string>
+    <string name="platillo_creado">Platillo creado correctamente.</string>
+    <string name="platillo_modificado">Platillo modificado correctamente.</string>
+    <string name="platillo_eliminado">Platillo eliminado.</string>
+    <string name="demo_minimo">En modo demo debe quedar al menos un platillo.</string>
+    <string name="nuevo_platillo">Nuevo platillo</string>
+    <string name="modificar_titulo">Modificar platillo</string>
+    <string name="nombre_platillo">Nombre del platillo</string>
+    <string name="descripcion">Descripción</string>
+    <string name="precio_platillo">Precio del platillo</string>
+    <string name="crear">Crear</string>
+    <string name="guardar_cambios">Guardar cambios</string>
+    <string name="err_nombre_platillo">Escribe el nombre del platillo</string>
+    <string name="err_descripcion">Escribe una descripción</string>
+    <string name="err_precio">Precio entre 0 y 999.99</string>
+
+    <!-- Más -->
+    <string name="mas_domicilio">🛵  Pedidos a domicilio</string>
+    <string name="mas_personal">👥  Personal</string>
+    <string name="mas_cocina">👨‍🍳  Cocina</string>
+    <string name="mas_proveedores">🚚  Proveedores</string>
+    <string name="titulo_domicilio">Pedidos a domicilio</string>
+    <string name="titulo_personal">Personal</string>
+    <string name="titulo_cocina">Cocina</string>
+    <string name="titulo_proveedores">Proveedores</string>
+</resources>

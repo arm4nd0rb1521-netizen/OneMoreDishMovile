@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/raiz"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/hero_abajo">
+
+    <include layout="@layout/vista_hero" />
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/hoja"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="235dp"
+        android:background="@drawable/bg_hoja"
+        android:clipToPadding="false"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="24dp"
+            android:paddingTop="28dp"
+            android:paddingEnd="24dp"
+            android:paddingBottom="20dp">
+
+            <TextView
+                style="@style/Omd.Titulo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/bienvenida_titulo"
+                android:textSize="30sp" />
+
+            <TextView
+                style="@style/Omd.Texto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:text="@string/bienvenida_texto" />
+
+            <TextView
+                style="@style/Omd.Etiqueta"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="22dp"
+                android:text="@string/para_cada_persona" />
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="-24dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="-24dp"
+                android:clipToPadding="false"
+                android:paddingStart="24dp"
+                android:paddingEnd="24dp"
+                android:scrollbars="none">
+
+                <LinearLayout
+                    android:id="@+id/lista_roles"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" />
+            </HorizontalScrollView>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:minHeight="20dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_iniciar"
+                style="@style/Omd.Boton"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:text="@string/iniciar_sesion" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_crear"
+                style="@style/Omd.Boton.Contorno"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/crear_cuenta" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</FrameLayout>
