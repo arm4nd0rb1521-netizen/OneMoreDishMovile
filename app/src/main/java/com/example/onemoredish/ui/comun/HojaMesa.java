@@ -53,6 +53,8 @@ public final class HojaMesa {
         final int[] elegido = {0};
         combo.setOnItemClickListener((p, vista, pos, id) -> elegido[0] = pos);
 
+        TextView txtComentarios = v.findViewById(R.id.sheet_comentarios);
+
         // ----- refrescar todo según el estado actual -----
         Runnable refrescar = () -> {
             badge.setText(mesa.estado);
@@ -71,6 +73,14 @@ public final class HojaMesa {
                 ((TextView) fila.findViewById(R.id.lin_precio)).setText(Datos.peso(l.precio));
                 lista.addView(fila);
             }
+            if (txtComentarios != null) {
+                if (mesa.comentarios != null && !mesa.comentarios.trim().isEmpty()) {
+                    txtComentarios.setVisibility(View.VISIBLE);
+                    txtComentarios.setText(ctx.getString(R.string.comentarios_agregados, mesa.comentarios));
+                } else {
+                    txtComentarios.setVisibility(View.GONE);
+                }
+            }
             totalValor.setText(Datos.peso(mesa.total()));
         };
 
@@ -82,7 +92,10 @@ public final class HojaMesa {
             String nuevo = estadoDe(ids.get(0));
             if (nuevo.equals(mesa.estado)) return;
             mesa.estado = nuevo;
-            if (Datos.LIBRE.equals(nuevo)) mesa.pedido.clear();
+            if (Datos.LIBRE.equals(nuevo)) {
+                mesa.pedido.clear();
+                mesa.comentarios = "";
+            }
             refrescar.run();
             alCambiar.run();
         });

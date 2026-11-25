@@ -126,6 +126,12 @@ public class PrincipalActivity extends AppCompatActivity {
         } else if (id == R.id.nav_mesas) {
             f = new MesasFragment();
             titulo = getString(R.string.titulo_mesas);
+        } else if (id == R.id.nav_ventas) {
+            f = new VentasFragment();
+            titulo = getString(R.string.titulo_ventas);
+        } else if (id == R.id.mas_personal) {
+            f = new PersonalFragment();
+            titulo = getString(R.string.titulo_personal);
         } else {
             titulo = tituloPendiente(id);
             f = PendienteFragment.nuevo(titulo);
@@ -138,13 +144,10 @@ public class PrincipalActivity extends AppCompatActivity {
     }
 
     /**
-     * Pantallas que aún no existen. Cuando crees una (por ejemplo PersonalFragment),
-     * agrega aquí arriba un "else if (id == R.id.mas_personal) { f = new PersonalFragment(); ... }".
+     * Pantallas que aún no existen.
      */
     private String tituloPendiente(int id) {
-        if (id == R.id.nav_ventas) return getString(R.string.titulo_ventas);
         if (id == R.id.mas_domicilio) return getString(R.string.titulo_domicilio);
-        if (id == R.id.mas_personal) return getString(R.string.titulo_personal);
         if (id == R.id.mas_cocina) return getString(R.string.titulo_cocina);
         if (id == R.id.mas_proveedores) return getString(R.string.titulo_proveedores);
         return getString(R.string.titulo_mas);

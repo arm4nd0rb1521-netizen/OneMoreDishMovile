@@ -101,6 +101,53 @@
     <string name="err_descripcion">Escribe una descripción</string>
     <string name="err_precio">Precio entre 0 y 999.99</string>
 
+    <!-- Ventas -->
+    <string name="realizar_venta">Realizar Venta</string>
+    <string name="ver_pedido">Ver pedido</string>
+    <string name="resumen_pedido">Resumen del pedido</string>
+    <string name="seleccionar_mesa">Mesa para el pedido</string>
+    <string name="comentarios_cocina">Comentarios para la cocina</string>
+    <string name="comentarios_hint">Ej. Sin cebolla, salsa aparte, bien cocido...</string>
+    <string name="para_llevar">Para llevar</string>
+    <string name="n_articulos">%1$d artículos</string>
+    <string name="un_articulo">1 artículo</string>
+    <string name="venta_exitosa">¡Venta registrada con éxito para %1$s!</string>
+    <string name="venta_para_llevar_exitosa">¡Venta registrada para llevar!</string>
+    <string name="err_sin_platillos_seleccionados">Selecciona al menos un platillo para realizar la venta</string>
+    <string name="comentarios_agregados">Comentarios para cocina: %1$s</string>
+
+    <string name="total_de_ventas">Total de ventas</string>
+    <string name="nueva_venta">Nueva venta</string>
+    <string name="todos_los_dias">Todos los días</string>
+    <string name="sin_ventas_fecha">No hay ventas registradas en esta fecha</string>
+    <string name="volver_resumen">← Resumen</string>
+    <string name="resumen_mes">Ventas del mes (%1$s): %2$d pedidos • %3$s</string>
+    <string name="mes_actual">Octubre 2024</string>
+    <string name="filtrar_fecha">Filtrar por fecha</string>
+
+    <!-- Personal -->
+    <string name="anadir_personal">Añadir personal</string>
+    <string name="modificar_personal">Modificar personal</string>
+    <string name="anadir">Añadir</string>
+    <string name="puesto">Puesto</string>
+    <string name="horario">Horario</string>
+    <string name="usuario_hint">Usuario</string>
+    <string name="buscar_personal">Buscar personal…</string>
+    <string name="sin_personal">No hay personal registrado con ese criterio.</string>
+    <string name="un_empleado">1 empleado</string>
+    <string name="n_empleados">%1$d empleados</string>
+    <string name="trabajando">trabajando</string>
+    <string name="descansando">descansando</string>
+    <string name="personal_creado">Empleado agregado correctamente.</string>
+    <string name="personal_modificado">Empleado modificado correctamente.</string>
+    <string name="personal_eliminado">Empleado eliminado del personal.</string>
+    <string name="confirmar_eliminar_personal">¿Eliminar a \"%1$s\" del personal?</string>
+    <string name="err_nombre_personal">Escribe el nombre completo</string>
+    <string name="err_usuario_personal">Escribe el usuario</string>
+    <string name="err_puesto_personal">Selecciona un puesto</string>
+    <string name="err_horario_personal">Selecciona un horario</string>
+    <string name="arroba">&#64;</string>
+
     <!-- Más -->
     <string name="mas_domicilio">🛵  Pedidos a domicilio</string>
     <string name="mas_personal">👥  Personal</string>
