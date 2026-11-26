@@ -12,66 +12,405 @@
         android:orientation="vertical"
         android:padding="20dp">
 
-        <TextView
-            style="@style/Omd.Titulo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/admin_bienvenido"
-            android:textSize="34sp"
-            android:textStyle="bold|italic" />
-
-        <TextView
-            style="@style/Omd.Texto"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/admin_resumen_texto" />
-
-        <include
-            layout="@layout/tarjeta_ocupacion"
+        <!-- Top Header: Saludo, Título, Notificación y Perfil -->
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp" />
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:layout_marginBottom="16dp">
 
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/txt_saludo"
+                    style="@style/Omd.Etiqueta"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Buenas noches, Sofía"
+                    android:textSize="14sp" />
+
+                <TextView
+                    style="@style/Omd.Titulo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Resumen del día"
+                    android:textSize="28sp" />
+            </LinearLayout>
+
+            <!-- Botón de Notificaciones -->
+            <ImageButton
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/circulo_blanco"
+                android:contentDescription="Notificaciones"
+                android:padding="10dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_nav_mas"
+                app:tint="@color/vino" />
+
+            <!-- Avatar / Iniciales de Perfil (SM) -->
+            <TextView
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:background="@drawable/circulo_rojo"
+                android:gravity="center"
+                android:text="SM"
+                android:textColor="@color/blanco"
+                android:textStyle="bold"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+        <!-- Tarjeta 1: Ventas de Hoy -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_tarjeta_venta_hoy"
+            android:elevation="4dp"
+            android:orientation="vertical"
+            android:padding="22dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/Omd.Texto"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Ventas de hoy"
+                    android:textColor="@color/blanco_suave"
+                    android:textSize="15sp" />
+
+                <TextView
+                    style="@style/Omd.Leyenda"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/circulo_blanco"
+                    android:text="Hoy"
+                    android:textColor="@color/vino"
+                    android:textStyle="bold"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/txt_home_ventas_monto"
+                style="@style/Omd.Titulo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:text="$90.00"
+                android:textColor="@color/blanco"
+                android:textSize="36sp" />
+
+            <!-- Simulación de gráfica de línea (Trend line) -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="36dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/ic_nav_inicio"
+                android:alpha="0.3" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/txt_home_pedidos_count"
+                    style="@style/Omd.Texto"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="1 pedido"
+                    android:textColor="@color/blanco_suave"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:id="@+id/txt_home_ticket_prom"
+                    style="@style/Omd.Texto"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Ticket prom. $90.00"
+                    android:textColor="@color/blanco_suave"
+                    android:textSize="13sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Fila de 2 Tarjetas: Mesas y En cocina -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="14dp"
             android:orientation="horizontal">
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btn_platillos"
-                style="@style/Omd.Boton.Tonal"
+            <!-- Tarjeta Mesas -->
+            <LinearLayout
                 android:layout_width="0dp"
-                android:layout_height="52dp"
-                android:layout_marginEnd="6dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="7dp"
                 android:layout_weight="1"
-                android:text="@string/platillos"
-                app:icon="@drawable/ic_nav_menu" />
+                android:background="@drawable/bg_tarjeta_blanca"
+                android:elevation="2dp"
+                android:orientation="vertical"
+                android:padding="16dp">
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btn_mesas"
-                style="@style/Omd.Boton.Tonal"
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/txt_home_mesas_fraccion"
+                        style="@style/Omd.Titulo"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="3/12"
+                        android:textSize="22sp" />
+
+                    <!-- Icono o indicador circular -->
+                    <View
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:background="@drawable/circulo_crema" />
+                </LinearLayout>
+
+                <TextView
+                    style="@style/Omd.Texto"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Mesas"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txt_home_mesas_porcentaje"
+                    style="@style/Omd.Etiqueta"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="25% ocupado"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <!-- Tarjeta En cocina -->
+            <LinearLayout
                 android:layout_width="0dp"
-                android:layout_height="52dp"
-                android:layout_marginStart="6dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="7dp"
                 android:layout_weight="1"
-                android:text="@string/nav_mesas"
-                app:icon="@drawable/ic_nav_mesas" />
+                android:background="@drawable/bg_tarjeta_blanca"
+                android:elevation="2dp"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    style="@style/Omd.Etiqueta"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="En cocina"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/txt_home_cocina_count"
+                    style="@style/Omd.Titulo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="3"
+                    android:textSize="28sp" />
+
+                <TextView
+                    style="@style/Omd.Etiqueta"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="Mayor espera 12:40"
+                    android:textSize="12sp" />
+            </LinearLayout>
         </LinearLayout>
 
-        <TextView
-            style="@style/Omd.Seccion"
-            android:layout_width="wrap_content"
+        <!-- Tarjeta: Ingresos de la semana -->
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="22dp"
-            android:layout_marginBottom="8dp"
-            android:text="@string/mapa_mesas" />
+            android:layout_marginTop="14dp"
+            android:background="@drawable/bg_tarjeta_blanca"
+            android:elevation="2dp"
+            android:orientation="vertical"
+            android:padding="18dp">
 
-        <GridLayout
-            android:id="@+id/grid_mesas"
-            android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/Omd.Texto"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Ingresos de la semana"
+                    android:textStyle="bold" />
+
+                <TextView
+                    style="@style/Omd.Etiqueta"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Datos de ejemplo"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <!-- Gráfica de barras simulada para los 7 días -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="110dp"
+                android:layout_marginTop="16dp"
+                android:gravity="bottom"
+                android:orientation="horizontal"
+                android:weightSum="7">
+
+                <!-- Barra 1: Jue -->
+                <LinearLayout android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:gravity="bottom|center_horizontal" android:orientation="vertical">
+                    <View android:layout_width="16dp" android:layout_height="50dp" android:background="@drawable/bg_foto_platillo" />
+                    <TextView style="@style/Omd.Etiqueta" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:text="Jue" android:textSize="12sp" />
+                </LinearLayout>
+                <!-- Barra 2: Vie -->
+                <LinearLayout android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:gravity="bottom|center_horizontal" android:orientation="vertical">
+                    <View android:layout_width="16dp" android:layout_height="70dp" android:background="@drawable/bg_foto_platillo" />
+                    <TextView style="@style/Omd.Etiqueta" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:text="Vie" android:textSize="12sp" />
+                </LinearLayout>
+                <!-- Barra 3: Sáb -->
+                <LinearLayout android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:gravity="bottom|center_horizontal" android:orientation="vertical">
+                    <View android:layout_width="16dp" android:layout_height="95dp" android:background="@drawable/bg_foto_platillo" />
+                    <TextView style="@style/Omd.Etiqueta" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:text="Sáb" android:textSize="12sp" />
+                </LinearLayout>
+                <!-- Barra 4: Dom -->
+                <LinearLayout android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:gravity="bottom|center_horizontal" android:orientation="vertical">
+                    <View android:layout_width="16dp" android:layout_height="85dp" android:background="@drawable/bg_foto_platillo" />
+                    <TextView style="@style/Omd.Etiqueta" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:text="Dom" android:textSize="12sp" />
+                </LinearLayout>
+                <!-- Barra 5: Lun -->
+                <LinearLayout android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:gravity="bottom|center_horizontal" android:orientation="vertical">
+                    <View android:layout_width="16dp" android:layout_height="45dp" android:background="@drawable/bg_foto_platillo" />
+                    <TextView style="@style/Omd.Etiqueta" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:text="Lun" android:textSize="12sp" />
+                </LinearLayout>
+                <!-- Barra 6: Mar -->
+                <LinearLayout android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:gravity="bottom|center_horizontal" android:orientation="vertical">
+                    <View android:layout_width="16dp" android:layout_height="65dp" android:background="@drawable/bg_foto_platillo" />
+                    <TextView style="@style/Omd.Etiqueta" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:text="Mar" android:textSize="12sp" />
+                </LinearLayout>
+                <!-- Barra 7: Mié (Resaltada) -->
+                <LinearLayout android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:gravity="bottom|center_horizontal" android:orientation="vertical">
+                    <View android:layout_width="16dp" android:layout_height="35dp" android:background="@drawable/circulo_rojo_oscuro" />
+                    <TextView style="@style/Omd.Etiqueta" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:text="Mié" android:textColor="@color/vino" android:textStyle="bold" android:textSize="12sp" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Tarjeta: Platillos más vendidos -->
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:columnCount="3" />
+            android:layout_marginTop="14dp"
+            android:background="@drawable/bg_tarjeta_blanca"
+            android:elevation="2dp"
+            android:orientation="vertical"
+            android:padding="18dp">
+
+            <TextView
+                style="@style/Omd.Texto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Platillos más vendidos"
+                android:textStyle="bold" />
+
+            <!-- Platillo 1 -->
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:orientation="vertical">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                    <TextView style="@style/Omd.Texto" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Tacos al Pastor" android:textSize="14sp" />
+                    <TextView style="@style/Omd.Etiqueta" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="90%" />
+                </LinearLayout>
+                <View android:layout_width="match_parent" android:layout_height="6dp" android:layout_marginTop="4dp" android:background="@drawable/bg_foto_platillo" />
+            </LinearLayout>
+
+            <!-- Platillo 2 -->
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10dp" android:orientation="vertical">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                    <TextView style="@style/Omd.Texto" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Enchiladas Suizas" android:textSize="14sp" />
+                    <TextView style="@style/Omd.Etiqueta" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="68%" />
+                </LinearLayout>
+                <View android:layout_width="match_parent" android:layout_height="6dp" android:layout_marginTop="4dp" android:background="@drawable/bg_foto_platillo" />
+            </LinearLayout>
+
+            <!-- Platillo 3 -->
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10dp" android:orientation="vertical">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                    <TextView style="@style/Omd.Texto" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Agua de Jamaica" android:textSize="14sp" />
+                    <TextView style="@style/Omd.Etiqueta" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="45%" />
+                </LinearLayout>
+                <View android:layout_width="match_parent" android:layout_height="6dp" android:layout_marginTop="4dp" android:background="@drawable/bg_foto_platillo" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Tarjeta: Actividad reciente -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/bg_tarjeta_blanca"
+            android:elevation="2dp"
+            android:orientation="vertical"
+            android:padding="18dp">
+
+            <TextView
+                style="@style/Omd.Texto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Actividad reciente"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+                <View android:layout_width="8dp" android:layout_height="8dp" android:background="@drawable/circulo_rojo_oscuro" />
+                <TextView style="@style/Omd.Texto" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginStart="10dp" android:text="Venta #109 cobrada · $90.00\n19:44" android:textSize="13sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+                <View android:layout_width="8dp" android:layout_height="8dp" android:background="@drawable/circulo_crema" />
+                <TextView style="@style/Omd.Texto" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginStart="10dp" android:text="Ticket #109 listo para entregar\n19:43" android:textSize="13sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+                <View android:layout_width="8dp" android:layout_height="8dp" android:background="@drawable/circulo_rojo" />
+                <TextView style="@style/Omd.Texto" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginStart="10dp" android:text="Mesa 2 abrió cuenta\n19:02" android:textSize="13sp" />
+            </LinearLayout>
+        </LinearLayout>
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>

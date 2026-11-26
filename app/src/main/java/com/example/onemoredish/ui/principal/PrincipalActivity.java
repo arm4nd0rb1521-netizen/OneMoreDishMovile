@@ -17,6 +17,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.onemoredish.R;
+import com.example.onemoredish.data.DataBaseHelper;
 import com.example.onemoredish.data.Sesion;
 import com.example.onemoredish.ui.Navegacion;
 import com.example.onemoredish.util.Pantalla;
@@ -38,6 +39,7 @@ public class PrincipalActivity extends AppCompatActivity {
                 SystemBarStyle.light(Color.TRANSPARENT, Color.TRANSPARENT),
                 SystemBarStyle.light(Color.TRANSPARENT, Color.TRANSPARENT));
         super.onCreate(savedInstanceState);
+        DataBaseHelper.init(this);
         setContentView(R.layout.activity_principal);
 
         nav = findViewById(R.id.nav);
@@ -132,6 +134,12 @@ public class PrincipalActivity extends AppCompatActivity {
         } else if (id == R.id.mas_personal) {
             f = new PersonalFragment();
             titulo = getString(R.string.titulo_personal);
+        } else if (id == R.id.mas_cocina) {
+            f = new CocinaFragment();
+            titulo = getString(R.string.titulo_cocina);
+        } else if (id == R.id.mas_proveedores) {
+            f = new ProveedoresFragment();
+            titulo = getString(R.string.titulo_proveedores);
         } else {
             titulo = tituloPendiente(id);
             f = PendienteFragment.nuevo(titulo);

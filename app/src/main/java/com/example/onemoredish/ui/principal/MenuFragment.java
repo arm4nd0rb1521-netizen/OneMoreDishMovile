@@ -119,7 +119,7 @@ public class MenuFragment extends Fragment {
                 .setMessage(getString(R.string.confirmar_eliminar, p.nombre))
                 .setNegativeButton(R.string.cancelar, null)
                 .setPositiveButton(R.string.eliminar, (d, w) -> {
-                    Datos.platillos().remove(p);
+                    p.eliminar();
                     pintar(false);
                     aviso(R.string.platillo_eliminado);
                 }).show();
@@ -170,12 +170,10 @@ public class MenuFragment extends Fragment {
             if (editar == null) {
                 int id = 1;
                 for (Datos.Platillo p : lista) id = Math.max(id, p.id + 1);
-                lista.add(new Datos.Platillo(id, nombre, "", precio, desc, "🍽️"));
+                new Datos.Platillo(id, nombre, "", precio, desc, "🍽️").guardar();
                 aviso(R.string.platillo_creado);
             } else {
-                int i = lista.indexOf(editar);
-                if (i >= 0) lista.set(i, new Datos.Platillo(editar.id, nombre, editar.categoria,
-                        precio, desc, editar.emoji));
+                new Datos.Platillo(editar.id, nombre, editar.categoria, precio, desc, editar.emoji).guardar();
                 aviso(R.string.platillo_modificado);
             }
             dlg.dismiss();

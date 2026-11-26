@@ -1,12 +1,13 @@
 package com.example.onemoredish.data;
 
-import java.util.ArrayList;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
 /**
- * Datos de demostración en memoria (mesas y platillos) con lo que muestra el look and feel.
- * Cuando conectes los servlets, solo cambias esta clase por llamadas a i.
+ * Capa de datos respaldada por SQLite a través de DataBaseHelper.
+ * Todos los cambios (platillos, mesas, ventas, personal, proveedores) se guardan en la base de datos.
  */
 public final class Datos {
     private Datos() {}
@@ -24,16 +25,23 @@ public final class Datos {
         public final boolean redonda;
         public String estado;
         public String comentarios = "";
-        public final List<Linea> pedido = new ArrayList<>();
+        public final List<Linea> pedido;
 
-        Mesa(int numero, boolean redonda, String estado) {
-            this.numero = numero; this.redonda = redonda; this.estado = estado;
+        public Mesa(int numero, boolean redonda, String estado) {
+            this.numero = numero;
+            this.redonda = redonda;
+            this.estado = estado;
+            this.pedido = new java.util.ArrayList<>();
         }
 
         public double total() {
             double t = 0;
             for (Linea l : pedido) t += l.precio;
             return t;
+        }
+
+        public void guardar() {
+            DataBaseHelper.de().actualizarMesa(this);
         }
     }
 
@@ -50,6 +58,56 @@ public final class Datos {
             this.totalVentas = totalVentas;
             this.totalMonto = totalMonto;
             this.esHoy = esHoy;
+        }
+    }
+
+    public static final class LineaVenta {
+        public final String nombre;
+        public final int cantidad;
+        public final double precioUnitario;
+        public final double subtotal;
+
+        public LineaVenta(String nombre, int cantidad, double precioUnitario) {
+            this.nombre = nombre;
+            this.cantidad = cantidad;
+            this.precioUnitario = precioUnitario;
+            this.subtotal = cantidad * precioUnitario;
+        }
+    }
+
+    public static final class Venta {
+        public final int id;
+        public final String fecha; // Formato: "YYYY-MM-DD"
+        public final String hora;  // Formato: "HH:mm"
+        public final String destino; // Ej. "Mesa 2" o "Para llevar"
+        public final List<LineaVenta> lineas;
+        public final double total;
+        public final String comentarios;
+        public String estadoCocina = "Pendiente";
+
+        public Venta(int id, String fecha, String hora, String destino, List<LineaVenta> lineas, double total, String comentarios) {
+            this.id = id;
+            this.fecha = fecha;
+            this.hora = hora;
+            this.destino = destino;
+            this.lineas = lineas;
+            this.total = total;
+            this.comentarios = comentarios;
+        }
+
+        public String resumenArticulos() {
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < lineas.size(); i++) {
+                LineaVenta l = lineas.get(i);
+                if (i > 0) sb.append(", ");
+                sb.append(l.cantidad).append("x ").append(l.nombre);
+            }
+            return sb.toString();
+        }
+
+        public void actualizarEstadoCocina(String nuevoEstado) {
+            this.estadoCocina = nuevoEstado;
+            DataBaseHelper.de().actualizarEstadoCocina(id, nuevoEstado);
         }
     }
 
@@ -78,72 +136,158 @@ public final class Datos {
             }
             return nombre.substring(0, Math.min(2, nombre.length())).toUpperCase(Locale.ROOT);
         }
+
+        public void guardar() {
+            DataBaseHelper.de().guardarEmpleado(this);
+        }
+
+        public void eliminar() {
+            DataBaseHelper.de().eliminarEmpleado(id);
+        }
+    }
+
+    public static final class Proveedor {
+        public final int id;
+        public String nombre;
+        public String contacto;
+        public String producto;
+        public String avatar;
+
+        public Proveedor(int id, String nombre, String contacto, String producto, String avatar) {
+            this.id = id;
+            this.nombre = nombre;
+            this.contacto = contacto;
+            this.producto = producto;
+            this.avatar = avatar;
+        }
+
+        public void guardar() {
+            DataBaseHelper.de().guardarProveedor(this);
+        }
+
+        public void eliminar() {
+            DataBaseHelper.de().eliminarProveedor(id);
+        }
     }
 
     public static final class Platillo {
         public final int id;
         public final String nombre, categoria, descripcion, emoji;
         public final double precio;
+
         public Platillo(int id, String nombre, String categoria, double precio, String descripcion, String emoji) {
-            this.id = id; this.nombre = nombre; this.categoria = categoria;
-            this.precio = precio; this.descripcion = descripcion; this.emoji = emoji;
+            this.id = id;
+            this.nombre = nombre;
+            this.categoria = categoria;
+            this.precio = precio;
+            this.descripcion = descripcion;
+            this.emoji = emoji;
+        }
+
+        public void guardar() {
+            DataBaseHelper.de().guardarPlatillo(this);
+        }
+
+        public void eliminar() {
+            DataBaseHelper.de().eliminarPlatillo(id);
         }
     }
 
-    private static final List<Mesa> MESAS = new ArrayList<>();
-    private static final List<Platillo> PLATILLOS = new ArrayList<>();
-    private static final List<VentaDia> VENTAS_DIARIAS = new ArrayList<>();
-    private static final List<Empleado> PERSONAL = new ArrayList<>();
+    // ==========================================
+    // GETTERS Y MÉTODOS DE ACCESO A BASE DE DATOS
+    // ==========================================
 
-    static {
-        PERSONAL.add(new Empleado(1, "Ortiz Guerrero Nelly", "ortiz.nelly", "Cocinero", "Mañana", "descansando"));
-        PERSONAL.add(new Empleado(2, "Nieto Cambrón Fernando", "fernando.nieto", "Cocinero", "Tarde", "trabajando"));
-        PERSONAL.add(new Empleado(3, "Bruno Martínez Sofía", "sofia.bruno", "Mesero", "Mañana", "trabajando"));
-        PERSONAL.add(new Empleado(4, "Torres Mendoza Jenifer", "jenifer.torres", "Mesero", "Tarde", "trabajando"));
-        VENTAS_DIARIAS.add(new VentaDia("Hoy · En curso", "2024-10-15", 18, 674.0, true));
-        VENTAS_DIARIAS.add(new VentaDia("Ayer", "2024-10-14", 24, 1795.0, false));
-        VENTAS_DIARIAS.add(new VentaDia("Anterior (13 Oct)", "2024-10-13", 22, 1543.0, false));
-        VENTAS_DIARIAS.add(new VentaDia("Anterior (12 Oct)", "2024-10-12", 24, 1967.0, false));
-        VENTAS_DIARIAS.add(new VentaDia("11 Oct 2024", "2024-10-11", 19, 1420.0, false));
-        VENTAS_DIARIAS.add(new VentaDia("10 Oct 2024", "2024-10-10", 28, 2150.0, false));
-        PLATILLOS.add(new Platillo(1, "Enchiladas Suizas", "Enchiladas", 145, "Con crema y queso gratinado", "🌯"));
-        PLATILLOS.add(new Platillo(2, "Tacos al Pastor", "Tacos", 125, "Con piña y cebolla", "🌮"));
-        PLATILLOS.add(new Platillo(3, "Mole Poblano", "Especialidades", 185, "Con pollo y ajonjolí", "🍲"));
-        PLATILLOS.add(new Platillo(4, "Chiles en Nogada", "Especialidades", 175, "De temporada", "🌶️"));
-        PLATILLOS.add(new Platillo(5, "Agua de Jamaica", "Bebidas", 90, "Jarra fría", "🥤"));
-        PLATILLOS.add(new Platillo(6, "Flan Napolitano", "Postres", 70, "Con caramelo", "🍮"));
+    public static List<Mesa> mesas() {
+        return DataBaseHelper.de().obtenerMesas();
+    }
 
-        String[] estados = {LIBRE, OCUPADA, SUCIA, LIBRE, LIBRE, RESERVADA,
-                OCUPADA, LIBRE, LIBRE, LIBRE, LIBRE, OCUPADA};
-        for (int i = 0; i < estados.length; i++) {
-            int n = i + 1;
-            Mesa m = new Mesa(n, n == 6 || n == 9, estados[i]);
-            if (OCUPADA.equals(m.estado)) {
-                m.pedido.add(new Linea("Enchiladas Suizas", 145));
-                m.pedido.add(new Linea("Agua de Jamaica", 90));
+    public static List<Platillo> platillos() {
+        return DataBaseHelper.de().obtenerPlatillos();
+    }
+
+    public static List<VentaDia> ventasDiarias() {
+        return DataBaseHelper.de().obtenerVentasDiarias();
+    }
+
+    public static List<Venta> detalleVentas() {
+        return DataBaseHelper.de().obtenerVentas();
+    }
+
+    public static List<Empleado> personal() {
+        return DataBaseHelper.de().obtenerEmpleados();
+    }
+
+    public static List<Proveedor> proveedores() {
+        return DataBaseHelper.de().obtenerProveedores();
+    }
+
+    private static int generarIdVenta() {
+        List<Venta> ventas = detalleVentas();
+        int max = 100;
+        for (Venta v : ventas) max = Math.max(max, v.id + 1);
+        return max;
+    }
+
+    public static Venta registrarVentaCompleta(String destino, List<LineaVenta> lineas, String comentarios) {
+        double total = 0;
+        for (LineaVenta lv : lineas) total += lv.subtotal;
+
+        String hoyFecha = new SimpleDateFormat("yyyy-MM-dd", Locale.US).format(new Date());
+        String hoyHora = new SimpleDateFormat("HH:mm", Locale.US).format(new Date());
+
+        int idVenta = generarIdVenta();
+        Venta v = new Venta(idVenta, hoyFecha, hoyHora, destino, lineas, total, comentarios);
+        DataBaseHelper.de().insertarVenta(v);
+
+        // Si se envió a una mesa, actualizar la mesa en BD
+        if (destino != null && destino.startsWith("Mesa ")) {
+            try {
+                int numMesa = Integer.parseInt(destino.replace("Mesa ", "").trim());
+                for (Mesa m : mesas()) {
+                    if (m.numero == numMesa) {
+                        m.estado = OCUPADA;
+                        if (comentarios != null && !comentarios.isEmpty()) {
+                            m.comentarios = comentarios;
+                        }
+                        for (LineaVenta lv : lineas) {
+                            for (int k = 0; k < lv.cantidad; k++) {
+                                m.pedido.add(new Linea(lv.nombre, lv.precioUnitario));
+                            }
+                        }
+                        m.guardar();
+                        break;
+                    }
+                }
+            } catch (Exception ignored) {}
+        }
+        return v;
+    }
+
+    public static List<Venta> ventasPorFecha(String fecha) {
+        List<Venta> resultado = new java.util.ArrayList<>();
+        List<Venta> todas = detalleVentas();
+        if (fecha == null || fecha.isEmpty()) return todas;
+        for (Venta v : todas) {
+            if (fecha.equals(v.fecha)) {
+                resultado.add(v);
             }
-            MESAS.add(m);
         }
+        return resultado;
     }
 
-    public static List<Mesa> mesas() { return MESAS; }
-    public static List<Platillo> platillos() { return PLATILLOS; }
-    public static List<VentaDia> ventasDiarias() { return VENTAS_DIARIAS; }
-    public static List<Empleado> personal() { return PERSONAL; }
-
-    public static void registrarVenta(double monto) {
-        if (!VENTAS_DIARIAS.isEmpty() && VENTAS_DIARIAS.get(0).esHoy) {
-            VentaDia hoy = VENTAS_DIARIAS.get(0);
-            hoy.totalVentas++;
-            hoy.totalMonto += monto;
-        } else {
-            VENTAS_DIARIAS.add(0, new VentaDia("Hoy · En curso", "2024-10-15", 1, monto, true));
+    public static double totalMontoPorFecha(String fecha) {
+        double total = 0;
+        for (Venta v : detalleVentas()) {
+            if (fecha == null || fecha.isEmpty() || fecha.equals(v.fecha)) {
+                total += v.total;
+            }
         }
+        return total;
     }
 
     public static int ocupadas() {
         int c = 0;
-        for (Mesa m : MESAS) if (OCUPADA.equals(m.estado)) c++;
+        for (Mesa m : mesas()) if (OCUPADA.equals(m.estado)) c++;
         return c;
     }
 
