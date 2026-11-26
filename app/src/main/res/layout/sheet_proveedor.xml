@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingStart="24dp"
+    android:paddingTop="4dp"
+    android:paddingEnd="24dp"
+    android:paddingBottom="28dp">
+
+    <com.google.android.material.bottomsheet.BottomSheetDragHandleView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/sheet_titulo_proveedor"
+        style="@style/Omd.Titulo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp" />
+
+    <TextView
+        style="@style/Omd.Etiqueta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="Registra los datos del proveedor y su producto" />
+
+    <!-- Nombre del proveedor -->
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Omd.Campo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:hint="Nombre del proveedor o empresa">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/txt_nombre_proveedor"
+            style="@style/Omd.Campo.Texto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:maxLines="1" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Producto que surte -->
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Omd.Campo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:hint="Producto que nos surte (ej. Lácteos)">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/txt_producto_proveedor"
+            style="@style/Omd.Campo.Texto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:maxLines="1" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Contacto / Teléfono -->
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Omd.Campo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:hint="Teléfono o contacto">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/txt_contacto_proveedor"
+            style="@style/Omd.Campo.Texto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="phone"
+            android:maxLines="1" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Avatar / Emoji -->
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Omd.Campo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:hint="Emoji / Avatar (ej. 🥬)">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/txt_avatar_proveedor"
+            style="@style/Omd.Campo.Texto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:maxLines="1" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_guardar_proveedor"
+        style="@style/Omd.Boton"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:layout_marginTop="18dp"
+        android:text="@string/guardar_cambios" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_eliminar_proveedor_sheet"
+        style="@style/Omd.Boton.Contorno"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/eliminar_platillo"
+        android:textColor="@color/error"
+        app:strokeColor="@color/error"
+        android:visibility="gone" />
+</LinearLayout>
