@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Tarjeta destacada vino degradada (Ventas de hoy / Total vendido / perfil) -->
 <shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">
     <gradient
-        android:angle="135"
-        android:startColor="#B8497A"
-        android:endColor="#6B1842" />
-    <corners android:radius="24dp" />
+        android:angle="315"
+        android:startColor="@color/fs_degradado_inicio"
+        android:endColor="@color/fs_degradado_fin" />
+    <corners android:radius="26dp" />
 </shape>

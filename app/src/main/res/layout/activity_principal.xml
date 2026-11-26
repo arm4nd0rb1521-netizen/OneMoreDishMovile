@@ -1,73 +1,100 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+  Paso 2 - Contenedor principal estilo FoodSync.
+  IDs que usa PrincipalActivity.java (NO cambiar):
+    raiz, barra, txt_titulo, btn_salir, contenedor, nav
+  IDs NUEVOS:
+    txt_marca   -> línea pequeña sobre el título (texto fijo, sin Java)
+    txt_avatar  -> círculo con iniciales (lo llena PrincipalActivity)
+    zona_nav    -> envoltura transparente de la barra inferior flotante
+-->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/raiz"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/rosa_fondo"
+    android:background="@drawable/bg_pantalla"
     android:orientation="vertical">
 
+    <!-- ===== Encabezado: marca + título | botón circular | avatar ===== -->
     <LinearLayout
         android:id="@+id/barra"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/rosa_header"
         android:gravity="center_vertical"
         android:orientation="horizontal"
-        android:paddingStart="16dp"
-        android:paddingTop="12dp"
-        android:paddingEnd="8dp"
-        android:paddingBottom="12dp">
+        android:paddingStart="20dp"
+        android:paddingTop="14dp"
+        android:paddingEnd="20dp"
+        android:paddingBottom="10dp">
 
-        <FrameLayout
-            android:layout_width="34dp"
-            android:layout_height="34dp"
-            android:background="@drawable/circulo_rojo"
-            android:backgroundTint="@color/rosa_principal">
-
-            <ImageView
-                android:layout_width="18dp"
-                android:layout_height="18dp"
-                android:layout_gravity="center"
-                android:importantForAccessibility="no"
-                android:src="@drawable/ic_cubiertos"
-                android:tint="@color/blanco" />
-        </FrameLayout>
-
-        <TextView
-            android:id="@+id/txt_titulo"
-            style="@style/Omd.Titulo"
+        <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
             android:layout_weight="1"
-            android:textSize="20sp" />
+            android:orientation="vertical">
 
+            <TextView
+                android:id="@+id/txt_marca"
+                style="@style/Omd.Marca"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/app_name" />
+
+            <TextView
+                android:id="@+id/txt_titulo"
+                style="@style/Omd.Titulo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textSize="26sp"
+                tools:text="Resumen de hoy" />
+        </LinearLayout>
+
+        <!-- Mismo id y misma función de antes (cerrar sesión), ahora en círculo blanco -->
         <ImageButton
             android:id="@+id/btn_salir"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:background="?attr/selectableItemBackgroundBorderless"
+            style="@style/Omd.BotonCircular"
+            android:layout_marginEnd="10dp"
             android:contentDescription="@string/cerrar_sesion"
             android:src="@drawable/ic_logout" />
+
+        <TextView
+            android:id="@+id/txt_avatar"
+            style="@style/Omd.Avatar"
+            android:importantForAccessibility="no"
+            tools:text="SM" />
     </LinearLayout>
 
+    <!-- ===== Contenido de cada pestaña ===== -->
     <FrameLayout
         android:id="@+id/contenedor"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1" />
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/nav"
+    <!-- ===== Barra inferior flotante ===== -->
+    <!-- zona_nav recibe el espacio de la barra de gestos para que la píldora quede flotando -->
+    <FrameLayout
+        android:id="@+id/zona_nav"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:backgroundTint="@color/rosa_header"
-        app:itemActiveIndicatorStyle="@style/Omd.Indicador"
-        app:itemIconTint="@color/nav_item"
-        app:itemTextColor="@color/nav_item"
-        app:labelVisibilityMode="labeled"
-        app:paddingBottomSystemWindowInsets="false"
-        app:paddingLeftSystemWindowInsets="false"
-        app:paddingRightSystemWindowInsets="false" />
+        android:clipToPadding="false"
+        android:paddingStart="16dp"
+        android:paddingTop="4dp"
+        android:paddingEnd="16dp"
+        android:paddingBottom="12dp">
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/nav"
+            style="@style/Omd.Nav"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:labelVisibilityMode="selected"
+            app:paddingBottomSystemWindowInsets="false"
+            app:paddingLeftSystemWindowInsets="false"
+            app:paddingRightSystemWindowInsets="false" />
+    </FrameLayout>
 </LinearLayout>

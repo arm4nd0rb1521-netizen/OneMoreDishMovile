@@ -1,61 +1,99 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+  Paso 4 - Tarjeta de ocupación (estilo FoodSync).
+  IDs que usa MapaMesas.java (NO cambiar):
+    txt_ocupadas, txt_total, txt_porcentaje, barra_ocupacion
+  ID NUEVO:
+    anillo_ocupacion -> anillo con el % (lo llena MapaMesas)
+  barra_ocupacion se conserva (el Java la sigue llenando) pero queda oculta,
+  porque el anillo muestra el mismo dato.
+-->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/bg_tarjeta_blanca"
     android:elevation="2dp"
-    android:orientation="vertical"
-    android:padding="16dp">
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:outlineAmbientShadowColor="@color/fs_primario"
+    android:outlineSpotShadowColor="@color/fs_primario"
+    android:padding="16dp"
+    tools:ignore="UnusedAttribute">
 
-    <TextView
-        style="@style/Omd.Etiqueta"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/mesas_ocupadas" />
+    <!-- Anillo con "3 / 12" al centro -->
+    <FrameLayout
+        android:layout_width="76dp"
+        android:layout_height="76dp">
+
+        <com.google.android.material.progressindicator.CircularProgressIndicator
+            android:id="@+id/anillo_ocupacion"
+            style="@style/Omd.Anillo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:max="100"
+            android:progress="0"
+            app:indicatorColor="@color/fs_primario"
+            app:indicatorSize="76dp"
+            app:trackThickness="8dp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="bottom"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/txt_ocupadas"
+                style="@style/Omd.Texto.Fuerte"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                tools:text="3" />
+
+            <TextView
+                android:id="@+id/txt_total"
+                style="@style/Omd.Etiqueta"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="2dp"
+                android:textColor="@color/fs_texto_suave"
+                android:textSize="12sp"
+                tools:text=" / 12" />
+        </LinearLayout>
+    </FrameLayout>
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:gravity="bottom"
-        android:orientation="horizontal">
+        android:layout_marginStart="16dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
 
         <TextView
-            android:id="@+id/txt_ocupadas"
-            style="@style/Omd.Titulo"
+            style="@style/Omd.TituloTarjeta"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="32sp" />
-
-        <TextView
-            android:id="@+id/txt_total"
-            style="@style/Omd.Etiqueta"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
-            android:textColor="@color/vino"
-            android:textSize="18sp" />
-
-        <Space
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_weight="1" />
+            android:text="@string/mesas_ocupadas" />
 
         <TextView
             android:id="@+id/txt_porcentaje"
             style="@style/Omd.Etiqueta"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="6dp" />
-    </LinearLayout>
+            android:layout_marginTop="2dp"
+            tools:text="25% ocupado" />
 
-    <com.google.android.material.progressindicator.LinearProgressIndicator
-        android:id="@+id/barra_ocupacion"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        app:indicatorColor="@color/boton"
-        app:trackColor="@color/rosa_claro"
-        app:trackCornerRadius="2dp"
-        app:trackThickness="4dp" />
+        <!-- Se conserva para MapaMesas.java; oculta porque el anillo ya muestra el % -->
+        <com.google.android.material.progressindicator.LinearProgressIndicator
+            android:id="@+id/barra_ocupacion"
+            style="@style/Omd.Progreso"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:visibility="gone" />
+    </LinearLayout>
 </LinearLayout>

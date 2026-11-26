@@ -1,33 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+  Paso 4 - Mesas (estilo FoodSync).
+  ID que usa MapaMesas.java (NO cambiar): grid_mesas
+  (más los de tarjeta_ocupacion.xml, que entra con <include>).
+  El ancho de las mesas lo calcula MapaMesas como (ancho de pantalla - 40dp) / 3,
+  por eso los márgenes laterales suman 20dp por lado: 12dp de página + 8dp del panel.
+-->
 <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:clipToPadding="false"
-    android:fillViewport="true">
+    android:fillViewport="true"
+    android:scrollbars="none">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:clipChildren="false"
+        android:clipToPadding="false"
         android:orientation="vertical"
-        android:padding="20dp">
+        android:paddingStart="12dp"
+        android:paddingTop="6dp"
+        android:paddingEnd="12dp"
+        android:paddingBottom="20dp"
+        tools:ignore="UnusedAttribute">
 
         <include
             layout="@layout/tarjeta_ocupacion"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-        <TextView
-            style="@style/Omd.Seccion"
-            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="22dp"
-            android:text="@string/mapa_mesas" />
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp" />
 
+        <!-- Leyenda: pastillas blancas con punto de color -->
         <HorizontalScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="8dp"
+            android:layout_marginTop="16dp"
+            android:clipToPadding="false"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
             android:scrollbars="none">
 
             <LinearLayout
@@ -40,44 +53,77 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="0dp"
-                    android:backgroundTint="@color/mesa_libre_claro"
+                    android:background="@drawable/bg_leyenda"
+                    android:drawableStart="@drawable/punto_salvia"
+                    android:gravity="center_vertical"
                     android:text="Libre"
-                    android:textColor="@color/mesa_libre_texto" />
+                    android:textColor="@color/fs_texto" />
 
                 <TextView
                     style="@style/Omd.Leyenda"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
-                    android:backgroundTint="@color/mesa_ocupada_claro"
+                    android:background="@drawable/bg_leyenda"
+                    android:drawableStart="@drawable/punto_rosa"
+                    android:gravity="center_vertical"
                     android:text="Ocupada"
-                    android:textColor="@color/mesa_ocupada_texto" />
+                    android:textColor="@color/fs_texto" />
 
                 <TextView
                     style="@style/Omd.Leyenda"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
-                    android:backgroundTint="@color/mesa_sucia_claro"
+                    android:background="@drawable/bg_leyenda"
+                    android:drawableStart="@drawable/punto_ambar"
+                    android:gravity="center_vertical"
                     android:text="Sucia"
-                    android:textColor="@color/mesa_sucia_texto" />
+                    android:textColor="@color/fs_texto" />
 
                 <TextView
                     style="@style/Omd.Leyenda"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
-                    android:backgroundTint="@color/mesa_reservada_claro"
+                    android:background="@drawable/bg_leyenda"
+                    android:drawableStart="@drawable/punto_lavanda"
+                    android:gravity="center_vertical"
                     android:text="Reservada"
-                    android:textColor="@color/mesa_reservada_texto" />
+                    android:textColor="@color/fs_texto" />
+
             </LinearLayout>
         </HorizontalScrollView>
 
-        <GridLayout
-            android:id="@+id/grid_mesas"
-            android:layout_width="wrap_content"
+        <!-- Panel blanco con el mapa de mesas -->
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:columnCount="3" />
+            android:layout_marginTop="14dp"
+            android:background="@drawable/bg_tarjeta_blanca"
+            android:elevation="2dp"
+            android:orientation="vertical"
+            android:outlineAmbientShadowColor="@color/fs_primario"
+            android:outlineSpotShadowColor="@color/fs_primario"
+            android:paddingStart="8dp"
+            android:paddingTop="12dp"
+            android:paddingEnd="8dp"
+            android:paddingBottom="10dp">
+
+            <TextView
+                style="@style/Omd.Seccion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginBottom="6dp"
+                android:text="@string/mapa_mesas" />
+
+            <GridLayout
+                android:id="@+id/grid_mesas"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:columnCount="3" />
+        </LinearLayout>
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>

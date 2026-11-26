@@ -1,46 +1,104 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Paleta de la web (general.css) -->
-    <color name="vino">#7A1F4E</color>
-    <color name="rosa_principal">#D4679B</color>
-    <color name="rosa_claro">#F3D3DC</color>
-    <color name="rosa_fondo">#FDF0EE</color>
-    <color name="rosa_header">#F8E6E8</color>
-    <color name="texto">#5A2140</color>
-    <color name="blanco_suave">#FFF6F5</color>
+    <!--
+      =========================================================
+      PALETA FOODSYNC (Rediseño)  -  Paso 1
+      Se conservan TODOS los nombres anteriores (los usan layouts
+      y clases Java); solo cambian sus valores. Los colores nuevos
+      empiezan con "fs_".
+      =========================================================
+    -->
 
-    <!-- Tomados del look and feel de Android (PDF) -->
-    <color name="boton">#BC4B82</color>
-    <color name="hoja">#FBF0EE</color>
-    <color name="texto_suave">#8A5A74</color>
-    <color name="borde_campo">#A88596</color>
-    <color name="borde_boton_contorno">#E3C8D2</color>
-    <color name="tarjeta_rol">#FCEFF2</color>
-    <color name="hero_arriba">#E8B48A</color>
-    <color name="hero_abajo">#C98A5E</color>
-    <color name="circulo_crema">#EFD9A6</color>
-    <color name="circulo_rojo">#E5553F</color>
-    <color name="circulo_rojo_oscuro">#D94A3A</color>
+    <!-- ===== Nombres existentes (valores actualizados) ===== -->
+    <color name="vino">#8E2456</color>
+    <color name="rosa_principal">#E080A6</color>
+    <color name="rosa_claro">#F6D7E4</color>
+    <color name="rosa_fondo">#FFF5F6</color>
+    <color name="rosa_header">#FBE4EC</color>
+    <color name="texto">#3C1527</color>
+    <color name="blanco_suave">#FFFBFC</color>
 
-    <!-- Estados de mesa (se usan en los siguientes pasos) -->
-    <color name="mesa_libre">#9DA87D</color>
-    <color name="mesa_ocupada">#EF7A91</color>
-    <color name="mesa_sucia">#F2B866</color>
-    <color name="mesa_reservada">#B99CD1</color>
+    <color name="boton">#B93A6F</color>
+    <color name="hoja">#FFFBFC</color>
+    <color name="texto_suave">#735861</color>
+    <color name="borde_campo">#D9B8C7</color>
+    <color name="borde_boton_contorno">#F0D3DF</color>
+    <color name="tarjeta_rol">#FCEBF0</color>
+    <color name="hero_arriba">#C4487C</color>
+    <color name="hero_abajo">#7E2251</color>
+    <color name="circulo_crema">#F6D7E4</color>
+    <color name="circulo_rojo">#E080A6</color>
+    <color name="circulo_rojo_oscuro">#A7396A</color>
 
-    <color name="ok_verde">#2D6A45</color>
-    <color name="error">#9B2C2C</color>
+    <!-- Estados de mesa (color fuerte: puntos, leyendas, gráficas) -->
+    <color name="mesa_libre">#889C77</color>
+    <color name="mesa_ocupada">#DB6292</color>
+    <color name="mesa_sucia">#E8B562</color>
+    <color name="mesa_reservada">#A492C4</color>
+
+    <color name="ok_verde">#5E7A4C</color>
+    <color name="error">#B3261E</color>
     <color name="blanco">#FFFFFF</color>
     <color name="transparente">#00000000</color>
-    <!-- Paso 2: tonos claros por estado, botón tonal y barra inferior -->
-    <color name="boton_tonal">#F7CFE3</color>
-    <color name="indicador_nav">#F3C6DC</color>
-    <color name="mesa_libre_claro">#DDE5C6</color>
-    <color name="mesa_libre_texto">#3F4A22</color>
-    <color name="mesa_ocupada_claro">#F8CFD8</color>
-    <color name="mesa_ocupada_texto">#7A1F4E</color>
-    <color name="mesa_sucia_claro">#F9E1B5</color>
-    <color name="mesa_sucia_texto">#6B4A10</color>
-    <color name="mesa_reservada_claro">#E6DAF0</color>
-    <color name="mesa_reservada_texto">#4B2E6B</color>
+
+    <color name="boton_tonal">#F8D9E5</color>
+    <color name="indicador_nav">#F8D9E5</color>
+
+    <!--
+      MapaMesas.java usa *_claro como FONDO de cada mesa y *_texto
+      como color del número. En el PDF las mesas son de color sólido
+      con texto blanco, así que aquí van los tonos sólidos.
+    -->
+    <color name="mesa_libre_claro">#7F946D</color>
+    <color name="mesa_libre_texto">#FFFFFF</color>
+    <color name="mesa_ocupada_claro">#DB6292</color>
+    <color name="mesa_ocupada_texto">#FFFFFF</color>
+    <color name="mesa_sucia_claro">#E8B562</color>
+    <color name="mesa_sucia_texto">#4A3010</color>
+    <color name="mesa_reservada_claro">#A492C4</color>
+    <color name="mesa_reservada_texto">#FFFFFF</color>
+
+    <!-- ===== Nuevos colores FoodSync ===== -->
+    <!-- Texto -->
+    <color name="fs_titulo">#440D28</color>
+    <color name="fs_texto">#3C1527</color>
+    <color name="fs_texto_suave">#735861</color>
+    <color name="fs_texto_tenue">#AF9DA5</color>
+
+    <!-- Marca (berry / vino) -->
+    <color name="fs_primario">#B93A6F</color>
+    <color name="fs_primario_oscuro">#8E2456</color>
+    <color name="fs_acento">#A7396A</color>
+    <color name="fs_degradado_inicio">#C4487C</color>
+    <color name="fs_degradado_fin">#7E2251</color>
+    <color name="fs_avatar_inicio">#E893B4</color>
+    <color name="fs_avatar_fin">#C4487C</color>
+
+    <!-- Rosas de apoyo -->
+    <color name="fs_rosa_medio">#E080A6</color>
+    <color name="fs_rosa_barra">#F4C3D6</color>
+    <color name="fs_rosa_pista">#F5D6E3</color>
+    <color name="fs_rosa_icono">#FBE1EA</color>
+    <color name="fs_badge_fondo">#F8D9E5</color>
+
+    <!-- Superficies -->
+    <color name="fs_fondo_arriba">#FFF5F6</color>
+    <color name="fs_fondo_abajo">#FBE0E9</color>
+    <color name="fs_tarjeta">#FFFCFD</color>
+    <color name="fs_borde_tarjeta">#F6E3EB</color>
+    <color name="fs_borde_control">#F0D3DF</color>
+    <color name="fs_sombra">#33B93A6F</color>
+    <color name="fs_blanco_translucido">#33FFFFFF</color>
+    <color name="fs_blanco_texto_suave">#D9FFFFFF</color>
+
+    <!-- Acentos de estado (gráficas, puntos de actividad, badges) -->
+    <color name="fs_salvia">#8FA07E</color>
+    <color name="fs_salvia_oscuro">#6F855F</color>
+    <color name="fs_salvia_claro">#E3EAD8</color>
+    <color name="fs_ambar">#E7B05C</color>
+    <color name="fs_ambar_claro">#FBEBCF</color>
+    <color name="fs_lavanda">#A492C4</color>
+    <color name="fs_gris_claro">#EFE7EA</color>
+    <color name="fs_ocupada_inicio">#E7749F</color>
+    <color name="fs_ocupada_fin">#CE4F82</color>
 </resources>

@@ -1,21 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Paso 4 - Renglón del pedido. IDs que usa HojaMesa.java (NO cambiar): lin_nombre, lin_precio -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:gravity="center_vertical"
     android:orientation="horizontal"
-    android:paddingTop="6dp"
-    android:paddingBottom="6dp">
+    android:paddingTop="8dp"
+    android:paddingBottom="8dp">
+
+    <View
+        android:layout_width="6dp"
+        android:layout_height="6dp"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/punto_rosa" />
 
     <TextView
         android:id="@+id/lin_nombre"
         style="@style/Omd.Texto"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight="1" />
+        android:layout_weight="1"
+        android:textSize="14sp" />
 
     <TextView
         android:id="@+id/lin_precio"
-        style="@style/Omd.Texto"
+        style="@style/Omd.Texto.Fuerte"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:textSize="14sp" />
 </LinearLayout>

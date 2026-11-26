@@ -1,22 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+  Paso 8 - Pantalla "Próximamente" (estilo FoodSync).
+  ID que usa PendienteFragment.java (NO cambiar): txt_pendiente_titulo
+-->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical"
-    android:padding="32dp">
+    android:padding="24dp">
 
-    <TextView
-        android:id="@+id/txt_pendiente_titulo"
-        style="@style/Omd.Titulo"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="22sp" />
+        android:background="@drawable/bg_tarjeta_blanca"
+        android:elevation="2dp"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:outlineAmbientShadowColor="@color/fs_primario"
+        android:outlineSpotShadowColor="@color/fs_primario"
+        android:padding="28dp"
+        tools:ignore="UnusedAttribute">
 
-    <TextView
-        style="@style/Omd.Etiqueta"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="@string/pendiente_texto" />
+        <ImageView
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:background="@drawable/bg_icono_suave"
+            android:importantForAccessibility="no"
+            android:padding="16dp"
+            android:src="@drawable/ic_cubiertos"
+            app:tint="@color/fs_primario" />
+
+        <TextView
+            android:id="@+id/txt_pendiente_titulo"
+            style="@style/Omd.TituloTarjeta"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:textSize="20sp" />
+
+        <TextView
+            style="@style/Omd.Etiqueta"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:gravity="center"
+            android:text="@string/pendiente_texto" />
+    </LinearLayout>
 </LinearLayout>

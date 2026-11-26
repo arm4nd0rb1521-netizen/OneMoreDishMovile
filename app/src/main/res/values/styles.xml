@@ -1,100 +1,189 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!--
-      TIPOGRAFIA: tu web usa Lora (titulos) y Poppins (texto).
-      Mientras agregas las fuentes, se usan serif / sans-serif.
-      Cuando las tengas, cambia SOLO estas dos lineas:
-          serif       ->  @font/lora
-          sans-serif  ->  @font/poppins
+      TIPOGRAFIA FoodSync: el PDF usa una sans geométrica tipo Poppins.
+      Por ahora se usa la sans-serif del sistema. Si agregas Poppins
+      (res/font/poppins.xml), cambia SOLO estas dos líneas en todo el
+      archivo:  sans-serif -> @font/poppins  y
+                sans-serif-medium -> @font/poppins_medium
     -->
+
+    <!-- ===================== TEXTO ===================== -->
     <style name="Omd.Titulo" parent="">
-        <item name="android:fontFamily">serif</item>
+        <item name="android:fontFamily">sans-serif</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:textColor">@color/vino</item>
+        <item name="android:textColor">@color/fs_titulo</item>
         <item name="android:textSize">28sp</item>
+        <item name="android:letterSpacing">-0.01</item>
         <item name="android:lineSpacingMultiplier">1.05</item>
+    </style>
+
+    <!-- NUEVO: línea pequeña sobre el título ("Buenas noches, Sofía") -->
+    <style name="Omd.Subtitulo" parent="">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textColor">@color/fs_texto_suave</item>
+        <item name="android:textSize">13sp</item>
+    </style>
+
+    <!-- NUEVO: título dentro de tarjetas ("Ingresos de la semana") -->
+    <style name="Omd.TituloTarjeta" parent="">
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/fs_titulo</item>
+        <item name="android:textSize">17sp</item>
+    </style>
+
+    <!-- NUEVO: cifras grandes ("$90.00", "3") -->
+    <style name="Omd.Numero" parent="">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/fs_titulo</item>
+        <item name="android:textSize">30sp</item>
+        <item name="android:letterSpacing">-0.01</item>
+    </style>
+
+    <style name="Omd.Numero.Blanco">
+        <item name="android:textColor">@color/blanco</item>
+        <item name="android:textSize">40sp</item>
     </style>
 
     <style name="Omd.Texto" parent="">
         <item name="android:fontFamily">sans-serif</item>
-        <item name="android:textColor">@color/texto</item>
+        <item name="android:textColor">@color/fs_texto</item>
         <item name="android:textSize">15sp</item>
         <item name="android:lineSpacingMultiplier">1.15</item>
     </style>
 
-    <style name="Omd.Etiqueta" parent="Omd.Texto">
-        <item name="android:textColor">@color/texto_suave</item>
+    <!-- NUEVO: texto en negritas para nombres de platillo / ticket -->
+    <style name="Omd.Texto.Fuerte">
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/fs_titulo</item>
+    </style>
+
+    <!-- NUEVO: texto claro sobre la tarjeta degradada -->
+    <style name="Omd.Texto.SobreVino">
+        <item name="android:textColor">@color/fs_blanco_texto_suave</item>
         <item name="android:textSize">13sp</item>
     </style>
 
+    <style name="Omd.Etiqueta" parent="Omd.Texto">
+        <item name="android:textColor">@color/fs_texto_suave</item>
+        <item name="android:textSize">13sp</item>
+    </style>
+
+    <!-- NUEVO: horas, porcentajes, "Datos de ejemplo" -->
+    <style name="Omd.Etiqueta.Tenue">
+        <item name="android:textColor">@color/fs_texto_tenue</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
     <style name="Omd.Enlace" parent="Omd.Texto">
-        <item name="android:textColor">@color/boton</item>
+        <item name="android:textColor">@color/fs_primario</item>
         <item name="android:fontFamily">sans-serif-medium</item>
         <item name="android:padding">8dp</item>
     </style>
 
-    <style name="Omd.Boton" parent="Widget.Material3.Button">
-        <item name="android:layout_height">56dp</item>
-        <item name="android:insetTop">0dp</item>
-        <item name="android:insetBottom">0dp</item>
-        <item name="android:textAllCaps">false</item>
-        <item name="android:textSize">16sp</item>
-        <item name="android:fontFamily">sans-serif-medium</item>
-        <item name="android:textColor">@color/blanco</item>
-        <item name="backgroundTint">@color/boton</item>
-        <item name="cornerRadius">28dp</item>
-    </style>
-
-    <style name="Omd.Boton.Contorno" parent="Widget.Material3.Button.OutlinedButton">
-        <item name="android:layout_height">56dp</item>
-        <item name="android:insetTop">0dp</item>
-        <item name="android:insetBottom">0dp</item>
-        <item name="android:textAllCaps">false</item>
-        <item name="android:textSize">16sp</item>
-        <item name="android:fontFamily">sans-serif-medium</item>
-        <item name="android:textColor">@color/boton</item>
-        <item name="strokeColor">@color/borde_boton_contorno</item>
-        <item name="cornerRadius">28dp</item>
-    </style>
-
-    <style name="Omd.Campo" parent="Widget.Material3.TextInputLayout.OutlinedBox">
-        <item name="boxStrokeColor">@color/campo_borde</item>
-        <item name="boxStrokeErrorColor">@color/error</item>
-        <item name="hintTextColor">@color/texto_suave</item>
-        <item name="android:textColorHint">@color/texto_suave</item>
-        <item name="boxCornerRadiusTopStart">12dp</item>
-        <item name="boxCornerRadiusTopEnd">12dp</item>
-        <item name="boxCornerRadiusBottomStart">12dp</item>
-        <item name="boxCornerRadiusBottomEnd">12dp</item>
-        <item name="endIconTint">@color/texto_suave</item>
-    </style>
-
-    <style name="Omd.Campo.Texto" parent="Widget.Material3.TextInputEditText.OutlinedBox">
-        <item name="android:textColor">@color/texto</item>
-        <item name="android:textSize">15sp</item>
-    </style>
-
-    <style name="Omd.Casilla" parent="Widget.Material3.CompoundButton.CheckBox">
-        <item name="buttonTint">@color/boton</item>
-        <item name="android:textColor">@color/texto</item>
-        <item name="android:textSize">14sp</item>
-    </style>
-    <!-- Paso 2 -->
+    <!-- Encabezados de grupo ("COCINEROS", "MESEROS") -->
     <style name="Omd.Seccion" parent="Omd.Etiqueta">
-        <item name="android:textColor">@color/boton</item>
+        <item name="android:textColor">@color/fs_acento</item>
         <item name="android:textSize">12sp</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textAllCaps">true</item>
-        <item name="android:letterSpacing">0.06</item>
+        <item name="android:letterSpacing">0.08</item>
     </style>
 
+    <!-- Pastilla de leyenda (Libre / Ocupada / Sucia / Reservada) -->
     <style name="Omd.Leyenda" parent="Omd.Texto">
         <item name="android:background">@drawable/bg_pastilla</item>
-        <item name="android:paddingStart">12dp</item>
-        <item name="android:paddingEnd">12dp</item>
-        <item name="android:paddingTop">5dp</item>
-        <item name="android:paddingBottom">5dp</item>
+        <item name="android:paddingStart">14dp</item>
+        <item name="android:paddingEnd">14dp</item>
+        <item name="android:paddingTop">6dp</item>
+        <item name="android:paddingBottom">6dp</item>
         <item name="android:textSize">13sp</item>
+        <item name="android:drawablePadding">6dp</item>
+    </style>
+
+    <!-- NUEVO: badge de estado ("Pendiente", "Disp.", "Agotado") -->
+    <style name="Omd.Badge" parent="">
+        <item name="android:background">@drawable/bg_badge</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textColor">@color/fs_acento</item>
+        <item name="android:textSize">11sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:paddingStart">10dp</item>
+        <item name="android:paddingEnd">10dp</item>
+        <item name="android:paddingTop">3dp</item>
+        <item name="android:paddingBottom">3dp</item>
+    </style>
+
+    <style name="Omd.Badge.Disponible">
+        <item name="android:background">@drawable/bg_badge_disponible</item>
+        <item name="android:textColor">@color/fs_salvia_oscuro</item>
+    </style>
+
+    <style name="Omd.Badge.Agotado">
+        <item name="android:background">@drawable/bg_badge_agotado</item>
+        <item name="android:textColor">@color/fs_texto_tenue</item>
+    </style>
+
+    <!-- NUEVO: badge translúcido sobre tarjeta vino ("Hoy") -->
+    <style name="Omd.Badge.SobreVino">
+        <item name="android:background">@drawable/bg_badge_translucido</item>
+        <item name="android:textColor">@color/blanco</item>
+    </style>
+
+    <!-- NUEVO: avatar circular con iniciales ("SM") -->
+    <style name="Omd.Avatar" parent="">
+        <item name="android:layout_width">44dp</item>
+        <item name="android:layout_height">44dp</item>
+        <item name="android:background">@drawable/bg_avatar</item>
+        <item name="android:gravity">center</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/blanco</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <!-- NUEVO: botón circular blanco de la campana -->
+    <style name="Omd.BotonCircular" parent="">
+        <item name="android:layout_width">44dp</item>
+        <item name="android:layout_height">44dp</item>
+        <item name="android:background">@drawable/bg_boton_circular</item>
+        <item name="android:padding">11dp</item>
+        <item name="android:scaleType">fitCenter</item>
+        <item name="tint">@color/fs_primario</item>
+        <item name="android:elevation">2dp</item>
+    </style>
+
+    <!-- ===================== BOTONES ===================== -->
+    <style name="Omd.Boton" parent="Widget.Material3.Button">
+        <item name="android:layout_height">52dp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/blanco</item>
+        <item name="backgroundTint">@color/fs_primario</item>
+        <item name="cornerRadius">16dp</item>
+        <item name="elevation">0dp</item>
+    </style>
+
+    <style name="Omd.Boton.Contorno" parent="Widget.Material3.Button.OutlinedButton">
+        <item name="android:layout_height">52dp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/fs_primario</item>
+        <item name="backgroundTint">@color/fs_tarjeta</item>
+        <item name="strokeColor">@color/fs_borde_control</item>
+        <item name="strokeWidth">1.5dp</item>
+        <item name="cornerRadius">16dp</item>
     </style>
 
     <style name="Omd.Boton.Tonal" parent="Widget.Material3.Button.TonalButton">
@@ -103,30 +192,197 @@
         <item name="android:textAllCaps">false</item>
         <item name="android:textSize">15sp</item>
         <item name="android:fontFamily">sans-serif-medium</item>
-        <item name="android:textColor">@color/vino</item>
+        <item name="android:textColor">@color/fs_primario_oscuro</item>
         <item name="backgroundTint">@color/boton_tonal</item>
-        <item name="iconTint">@color/vino</item>
-        <item name="cornerRadius">26dp</item>
+        <item name="iconTint">@color/fs_primario_oscuro</item>
+        <item name="cornerRadius">16dp</item>
     </style>
 
+    <!-- NUEVO: selector segmentado tipo pastilla ("Salón" / "Terraza") -->
+    <style name="Omd.Segmento" parent="Widget.Material3.Button.OutlinedButton">
+        <item name="android:minHeight">36dp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:paddingStart">16dp</item>
+        <item name="android:paddingEnd">16dp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textColor">@color/chip_texto</item>
+        <item name="backgroundTint">@color/chip_fondo</item>
+        <item name="strokeColor">@color/chip_borde</item>
+        <item name="strokeWidth">1dp</item>
+        <item name="cornerRadius">18dp</item>
+    </style>
+
+    <!-- ===================== CAMPOS ===================== -->
+    <style name="Omd.Campo" parent="Widget.Material3.TextInputLayout.OutlinedBox">
+        <item name="boxStrokeColor">@color/campo_borde</item>
+        <item name="boxStrokeErrorColor">@color/error</item>
+        <item name="boxBackgroundColor">@color/fs_tarjeta</item>
+        <item name="hintTextColor">@color/fs_primario</item>
+        <item name="android:textColorHint">@color/fs_texto_suave</item>
+        <item name="boxCornerRadiusTopStart">14dp</item>
+        <item name="boxCornerRadiusTopEnd">14dp</item>
+        <item name="boxCornerRadiusBottomStart">14dp</item>
+        <item name="boxCornerRadiusBottomEnd">14dp</item>
+        <item name="endIconTint">@color/fs_texto_suave</item>
+        <item name="startIconTint">@color/fs_texto_suave</item>
+    </style>
+
+    <!-- NUEVO: buscador redondo ("Buscar platillo", "Buscar proveedor") -->
+    <style name="Omd.Buscador" parent="Omd.Campo">
+        <item name="boxStrokeColor">@color/fs_borde_control</item>
+        <item name="boxStrokeWidth">1dp</item>
+        <item name="boxStrokeWidthFocused">1.5dp</item>
+        <item name="boxCornerRadiusTopStart">24dp</item>
+        <item name="boxCornerRadiusTopEnd">24dp</item>
+        <item name="boxCornerRadiusBottomStart">24dp</item>
+        <item name="boxCornerRadiusBottomEnd">24dp</item>
+        <item name="hintEnabled">false</item>
+        <item name="startIconDrawable">@drawable/ic_buscar</item>
+    </style>
+
+    <style name="Omd.Campo.Texto" parent="Widget.Material3.TextInputEditText.OutlinedBox">
+        <item name="android:textColor">@color/fs_texto</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <style name="Omd.Casilla" parent="Widget.Material3.CompoundButton.CheckBox">
+        <item name="buttonTint">@color/fs_primario</item>
+        <item name="android:textColor">@color/fs_texto</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <!-- ===================== CHIPS ===================== -->
+    <!-- Seleccionado: pastilla vino sólida con texto blanco (como el PDF) -->
     <style name="Omd.Chip" parent="Widget.Material3.Chip.Filter">
         <item name="chipBackgroundColor">@color/chip_fondo</item>
-        <item name="chipStrokeColor">@color/borde_boton_contorno</item>
+        <item name="chipStrokeColor">@color/chip_borde</item>
         <item name="chipStrokeWidth">1dp</item>
-        <item name="chipCornerRadius">12dp</item>
-        <item name="checkedIconTint">@color/vino</item>
-        <item name="android:textColor">@color/vino</item>
+        <item name="chipCornerRadius">18dp</item>
+        <item name="chipMinHeight">36dp</item>
+        <item name="checkedIconVisible">false</item>
+        <item name="chipStartPadding">6dp</item>
+        <item name="chipEndPadding">6dp</item>
+        <item name="android:textColor">@color/chip_texto</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
     </style>
 
+    <!-- ===================== TARJETAS ===================== -->
+    <!-- Estilo por defecto de todos los MaterialCardView (ver themes.xml) -->
+    <style name="Omd.Tarjeta" parent="Widget.Material3.CardView.Elevated">
+        <item name="cardBackgroundColor">@color/fs_tarjeta</item>
+        <item name="cardCornerRadius">22dp</item>
+        <item name="cardElevation">2dp</item>
+        <item name="strokeColor">@color/fs_borde_tarjeta</item>
+        <item name="strokeWidth">1dp</item>
+        <item name="cardUseCompatPadding">false</item>
+    </style>
+
+    <!-- NUEVO: tarjeta plana sin sombra (dentro de listas) -->
+    <style name="Omd.Tarjeta.Plana">
+        <item name="cardElevation">0dp</item>
+    </style>
+
+    <!-- ===================== INDICADORES ===================== -->
+    <!-- NUEVO: barras de "Platillos más vendidos" (LinearProgressIndicator) -->
+    <style name="Omd.Progreso" parent="Widget.Material3.LinearProgressIndicator">
+        <item name="indicatorColor">@color/fs_primario</item>
+        <item name="trackColor">@color/fs_rosa_pista</item>
+        <item name="trackThickness">8dp</item>
+        <item name="trackCornerRadius">4dp</item>
+        <item name="indicatorTrackGapSize">0dp</item>
+        <item name="trackStopIndicatorSize">0dp</item>
+    </style>
+
+    <!-- NUEVO: anillo de tiempo de Cocina y de ocupación (CircularProgressIndicator) -->
+    <style name="Omd.Anillo" parent="Widget.Material3.CircularProgressIndicator">
+        <item name="indicatorColor">@color/fs_primario_oscuro</item>
+        <item name="trackColor">@color/fs_rosa_pista</item>
+        <item name="indicatorSize">64dp</item>
+        <item name="trackThickness">6dp</item>
+        <item name="trackCornerRadius">3dp</item>
+        <item name="indicatorTrackGapSize">0dp</item>
+    </style>
+
+    <style name="Omd.Anillo.Salvia">
+        <item name="indicatorColor">@color/fs_salvia</item>
+    </style>
+
+    <!-- ===================== NAVEGACIÓN ===================== -->
+    <!-- Indicador actual (claro): lo usa hoy activity_principal.xml -->
     <style name="Omd.Indicador" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
         <item name="android:color">@color/indicador_nav</item>
+        <item name="shapeAppearance">@style/Omd.FormaPastilla</item>
     </style>
 
+    <!-- NUEVO: indicador sólido vino con ícono blanco (para Omd.Nav) -->
+    <style name="Omd.Indicador.Solido">
+        <item name="android:color">@color/fs_primario</item>
+        <item name="android:width">64dp</item>
+        <item name="android:height">34dp</item>
+    </style>
+
+    <!-- NUEVO: barra inferior flotante (se aplica en el paso de activity_principal) -->
+    <style name="Omd.Nav" parent="Widget.Material3.BottomNavigationView">
+        <item name="android:background">@drawable/bg_nav_flotante</item>
+        <item name="backgroundTint">@null</item>
+        <item name="itemActiveIndicatorStyle">@style/Omd.Indicador.Solido</item>
+        <item name="itemIconTint">@color/nav_icono</item>
+        <item name="itemTextColor">@color/nav_item</item>
+        <item name="itemTextAppearanceActive">@style/Omd.NavTexto</item>
+        <item name="itemTextAppearanceInactive">@style/Omd.NavTexto</item>
+        <item name="labelVisibilityMode">labeled</item>
+        <item name="elevation">6dp</item>
+    </style>
+
+    <style name="Omd.NavTexto" parent="TextAppearance.Material3.LabelMedium">
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Omd.FormaPastilla" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+
+    <!-- ===================== HOJAS INFERIORES ===================== -->
     <style name="Omd.HojaTema" parent="ThemeOverlay.Material3.BottomSheetDialog">
         <item name="bottomSheetStyle">@style/Omd.Hoja</item>
     </style>
 
     <style name="Omd.Hoja" parent="Widget.Material3.BottomSheet.Modal">
         <item name="backgroundTint">@color/blanco_suave</item>
+        <item name="shapeAppearance">@style/Omd.FormaHoja</item>
+    </style>
+
+    <style name="Omd.FormaHoja" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopLeft">28dp</item>
+        <item name="cornerSizeTopRight">28dp</item>
+        <item name="cornerSizeBottomLeft">0dp</item>
+        <item name="cornerSizeBottomRight">0dp</item>
+    </style>
+
+    <!-- ===================== PASO 2: encabezado y menú "Más" ===================== -->
+    <!-- NUEVO: nombre de la app sobre el título (como "FoodSync" en el PDF) -->
+    <style name="Omd.Marca" parent="">
+        <item name="android:fontFamily">serif</item>
+        <item name="android:textStyle">bold|italic</item>
+        <item name="android:textColor">@color/fs_primario</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <!-- NUEVO: menú desplegable de "Más" con fondo blanco redondeado -->
+    <style name="Omd.Popup" parent="Widget.Material3.PopupMenu">
+        <item name="android:popupBackground">@drawable/bg_popup</item>
+        <item name="android:popupElevation">8dp</item>
+    </style>
+
+    <style name="Omd.PopupTexto" parent="TextAppearance.Material3.BodyLarge">
+        <item name="android:textColor">@color/fs_texto</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
     </style>
 </resources>

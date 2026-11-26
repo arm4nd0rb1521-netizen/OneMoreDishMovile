@@ -44,8 +44,12 @@ public class PrincipalActivity extends AppCompatActivity {
 
         nav = findViewById(R.id.nav);
         txtTitulo = findViewById(R.id.txt_titulo);
-        Pantalla.ajustar(findViewById(R.id.raiz), findViewById(R.id.barra), nav);
+        // CAMBIO VISUAL (Paso 2): el espacio de la barra de gestos va a la envoltura
+        // "zona_nav" (antes iba a "nav") para que la barra inferior quede flotando.
+        Pantalla.ajustar(findViewById(R.id.raiz), findViewById(R.id.barra), findViewById(R.id.zona_nav));
         findViewById(R.id.btn_salir).setOnClickListener(v -> Navegacion.cerrarSesion(this));
+        // NUEVO (solo visual, Paso 2): iniciales del usuario en el avatar del encabezado
+        ((TextView) findViewById(R.id.txt_avatar)).setText(iniciales(Sesion.de(this).nombre()));
 
         nav.inflateMenu(menuDe(Sesion.de(this).rol()));
 
@@ -81,6 +85,16 @@ public class PrincipalActivity extends AppCompatActivity {
     /** Para que un fragmento cambie de pestaña (por ejemplo los botones de Inicio). */
     public void seleccionar(int idItem) {
         nav.setSelectedItemId(idItem);
+    }
+
+    /** NUEVO (solo visual, Paso 2): "Sofía Martínez" -> "SM"; "Ana" -> "AN"; vacío -> "?". */
+    private static String iniciales(@Nullable String nombre) {
+        if (nombre == null || nombre.trim().isEmpty()) return "?";
+        String[] partes = nombre.trim().split("\\s+");
+        String r = partes.length >= 2
+                ? "" + partes[0].charAt(0) + partes[1].charAt(0)
+                : partes[0].substring(0, Math.min(2, partes[0].length()));
+        return r.toUpperCase();
     }
 
     private int menuDe(@Nullable String rol) {

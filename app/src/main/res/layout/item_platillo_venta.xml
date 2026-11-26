@@ -1,4 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+  Paso 7 - Tarjeta de platillo para vender (estilo FoodSync).
+  IDs que usa VentasFragment.java (NO cambiar):
+    card_platillo_venta, pl_emoji, pl_nombre, pl_desc, pl_precio,
+    btn_menos, txt_cantidad, btn_mas
+  No hay IDs nuevos.
+  card_platillo_venta sigue siendo FrameLayout porque el Java le cambia el fondo
+  (bg_tarjeta_platillo / bg_tarjeta_platillo_seleccionado) al sumar o restar.
+-->
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/card_platillo_venta"
@@ -8,42 +17,56 @@
     android:layout_gravity="fill"
     android:layout_margin="6dp"
     android:background="@drawable/bg_tarjeta_platillo"
-    android:padding="10dp">
+    android:padding="8dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <FrameLayout
+        <!-- "Foto" rayada con esquinas redondeadas -->
+        <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:background="@drawable/bg_foto_platillo">
+            android:layout_height="96dp"
+            app:cardBackgroundColor="@color/fs_rosa_icono"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="0dp"
+            app:strokeWidth="0dp">
 
-            <TextView
-                android:id="@+id/pl_emoji"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:textSize="44sp" />
-        </FrameLayout>
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/bg_rayas_platillo">
+
+                <TextView
+                    android:id="@+id/pl_emoji"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:textSize="40sp" />
+            </FrameLayout>
+        </com.google.android.material.card.MaterialCardView>
 
         <TextView
             android:id="@+id/pl_nombre"
-            style="@style/Omd.Titulo"
+            style="@style/Omd.TituloTarjeta"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="4dp"
             android:ellipsize="end"
             android:maxLines="2"
-            android:textSize="16sp" />
+            android:textSize="15sp" />
 
         <TextView
             android:id="@+id/pl_desc"
             style="@style/Omd.Etiqueta"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
             android:layout_marginTop="2dp"
+            android:layout_marginEnd="4dp"
             android:ellipsize="end"
             android:maxLines="2"
             android:textSize="12sp" />
@@ -53,61 +76,57 @@
             android:layout_height="0dp"
             android:layout_weight="1" />
 
+        <TextView
+            android:id="@+id/pl_precio"
+            style="@style/Omd.Texto.Fuerte"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="8dp"
+            android:textColor="@color/fs_primario"
+            android:textSize="16sp" />
+
+        <!-- Contador − 0 + en pastilla -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/bg_leyenda"
             android:gravity="center_vertical"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:padding="3dp">
+
+            <ImageButton
+                android:id="@+id/btn_menos"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:background="@drawable/bg_icono_suave"
+                android:contentDescription="Restar"
+                android:padding="7dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_menos"
+                app:tint="@color/fs_primario" />
 
             <TextView
-                android:id="@+id/pl_precio"
-                style="@style/Omd.Titulo"
+                android:id="@+id/txt_cantidad"
+                style="@style/Omd.Texto.Fuerte"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:textColor="@color/rosa_principal"
-                android:textSize="18sp" />
+                android:gravity="center"
+                android:text="0"
+                android:textSize="15sp" />
 
-            <!-- Botones + - -->
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
-
-                <ImageButton
-                    android:id="@+id/btn_menos"
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
-                    android:background="@drawable/circulo_crema"
-                    android:contentDescription="Restar"
-                    android:padding="6dp"
-                    android:scaleType="fitCenter"
-                    android:src="@drawable/ic_menos"
-                    app:tint="@color/vino" />
-
-                <TextView
-                    android:id="@+id/txt_cantidad"
-                    style="@style/Omd.Titulo"
-                    android:layout_width="30dp"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="0"
-                    android:textColor="@color/vino"
-                    android:textSize="16sp" />
-
-                <ImageButton
-                    android:id="@+id/btn_mas"
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
-                    android:background="@drawable/circulo_rojo_oscuro"
-                    android:contentDescription="Agregar"
-                    android:padding="6dp"
-                    android:scaleType="fitCenter"
-                    android:src="@drawable/ic_mas"
-                    app:tint="@color/blanco" />
-            </LinearLayout>
+            <ImageButton
+                android:id="@+id/btn_mas"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:background="@drawable/circulo_primario"
+                android:contentDescription="Agregar"
+                android:padding="7dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_mas"
+                app:tint="@color/blanco" />
         </LinearLayout>
     </LinearLayout>
 </FrameLayout>

@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+  Paso 8 - estilo FoodSync.
+  IDs que usa el Java (NO cambiar): card_personal, txt_personal_iniciales, txt_personal_nombre, txt_personal_puesto_horario, txt_personal_estado
+  No hay IDs nuevos.
+-->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/card_personal"
     android:layout_width="match_parent"
@@ -7,21 +12,23 @@
     android:layout_marginBottom="6dp"
     android:background="@drawable/bg_tarjeta_blanca"
     android:elevation="2dp"
+    android:foreground="?attr/selectableItemBackground"
+    android:outlineAmbientShadowColor="@color/fs_primario"
+    android:outlineSpotShadowColor="@color/fs_primario"
     android:gravity="center_vertical"
     android:orientation="horizontal"
-    android:padding="14dp"
+    android:padding="16dp"
     android:clickable="true"
-    android:focusable="true"
-    android:backgroundTint="@color/blanco">
+    android:focusable="true">
 
     <TextView
         android:id="@+id/txt_personal_iniciales"
-        style="@style/Omd.Titulo"
+        style="@style/Omd.Texto.Fuerte"
         android:layout_width="46dp"
         android:layout_height="46dp"
-        android:background="@drawable/circulo_crema"
+        android:background="@drawable/bg_icono_suave"
         android:gravity="center"
-        android:textColor="@color/vino"
+        android:textColor="@color/fs_primario"
         android:textSize="16sp" />
 
     <LinearLayout
@@ -33,11 +40,10 @@
 
         <TextView
             android:id="@+id/txt_personal_nombre"
-            style="@style/Omd.Texto"
+            style="@style/Omd.Texto.Fuerte"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+            android:textSize="15sp" />
 
         <TextView
             android:id="@+id/txt_personal_puesto_horario"
@@ -53,5 +59,9 @@
         style="@style/Omd.Leyenda"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="13sp" />
+        android:fontFamily="sans-serif-medium"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp"
+        android:textSize="12sp"
+        android:textStyle="bold" />
 </LinearLayout>

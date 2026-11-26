@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- NUEVO (Paso 6). Fondo rayado rosa de la foto del platillo (como el PDF) -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="200dp"
+    android:height="120dp"
+    android:viewportWidth="200"
+    android:viewportHeight="120">
+    <path
+        android:fillColor="@color/fs_rosa_icono"
+        android:pathData="M0,0h200v120h-200z" />
+    <path
+        android:fillColor="@color/fs_rosa_pista"
+        android:pathData="M-120,120 L-108,120 L12,0 L0,0 Z M-94,120 L-82,120 L38,0 L26,0 Z M-68,120 L-56,120 L64,0 L52,0 Z M-42,120 L-30,120 L90,0 L78,0 Z M-16,120 L-4,120 L116,0 L104,0 Z M10,120 L22,120 L142,0 L130,0 Z M36,120 L48,120 L168,0 L156,0 Z M62,120 L74,120 L194,0 L182,0 Z M88,120 L100,120 L220,0 L208,0 Z M114,120 L126,120 L246,0 L234,0 Z M140,120 L152,120 L272,0 L260,0 Z M166,120 L178,120 L298,0 L286,0 Z M192,120 L204,120 L324,0 L312,0 Z M218,120 L230,120 L350,0 L338,0 Z" />
+</vector>

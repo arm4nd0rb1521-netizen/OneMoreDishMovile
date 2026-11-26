@@ -1,17 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+  Paso 6 - Menú (estilo FoodSync).
+  IDs que usa MenuFragment.java (NO cambiar):
+    txt_contador, btn_agregar_platillo, txt_buscar, grid_platillos, txt_vacio
+  No hay IDs nuevos.
+-->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <!-- Contador + agregar -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
         android:orientation="horizontal"
         android:paddingStart="20dp"
-        android:paddingTop="16dp"
+        android:paddingTop="4dp"
         android:paddingEnd="20dp">
 
         <TextView
@@ -20,49 +27,59 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:textSize="15sp" />
+            android:textSize="14sp" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_agregar_platillo"
             style="@style/Omd.Boton"
             android:layout_width="wrap_content"
-            android:layout_height="46dp"
+            android:layout_height="40dp"
+            android:paddingStart="14dp"
+            android:paddingEnd="16dp"
             android:text="@string/agregar_platillo"
-            android:textSize="14sp"
+            android:textSize="13sp"
+            app:cornerRadius="20dp"
             app:icon="@drawable/ic_mas"
+            app:iconPadding="6dp"
+            app:iconSize="18dp"
             app:iconTint="@color/blanco" />
     </LinearLayout>
 
+    <!-- Buscador redondo -->
     <com.google.android.material.textfield.TextInputLayout
-        style="@style/Omd.Campo"
+        style="@style/Omd.Buscador"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="12dp"
         android:layout_marginEnd="20dp"
-        android:hint="@string/buscar_platillo"
-        app:startIconDrawable="@drawable/ic_buscar"
-        app:startIconTint="@color/texto_suave">
+        app:startIconTint="@color/fs_texto_suave">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/txt_buscar"
             style="@style/Omd.Campo.Texto"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:hint="@string/buscar_platillo"
             android:imeOptions="actionSearch"
             android:inputType="text"
-            android:maxLines="1" />
+            android:maxLines="1"
+            android:paddingTop="14dp"
+            android:paddingBottom="14dp"
+            android:textColorHint="@color/fs_texto_tenue" />
     </com.google.android.material.textfield.TextInputLayout>
 
+    <!-- Cuadrícula de platillos -->
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
         android:clipToPadding="false"
         android:paddingStart="14dp"
-        android:paddingTop="8dp"
+        android:paddingTop="10dp"
         android:paddingEnd="14dp"
-        android:paddingBottom="20dp">
+        android:paddingBottom="20dp"
+        android:scrollbars="none">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -73,6 +90,8 @@
                 android:id="@+id/grid_platillos"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:clipChildren="false"
+                android:clipToPadding="false"
                 android:columnCount="2" />
 
             <TextView
@@ -80,6 +99,8 @@
                 style="@style/Omd.Etiqueta"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="6dp"
+                android:background="@drawable/bg_tarjeta_blanca"
                 android:gravity="center"
                 android:padding="32dp"
                 android:visibility="gone" />

@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment;
 
 import com.example.onemoredish.R;
 import com.example.onemoredish.data.Datos;
+import com.google.android.material.progressindicator.CircularProgressIndicator;
 
 import java.util.List;
 import java.util.Locale;
@@ -20,6 +21,7 @@ import java.util.Locale;
 public class InicioAdminFragment extends Fragment {
 
     private TextView txtVentasMonto, txtPedidosCount, txtTicketProm, txtMesasFraccion, txtMesasPorcentaje, txtCocinaCount;
+    private CircularProgressIndicator progMesas; // NUEVO (solo visual, Paso 3): anillo de ocupación
 
     @Nullable
     @Override
@@ -35,6 +37,7 @@ public class InicioAdminFragment extends Fragment {
         txtMesasFraccion = v.findViewById(R.id.txt_home_mesas_fraccion);
         txtMesasPorcentaje = v.findViewById(R.id.txt_home_mesas_porcentaje);
         txtCocinaCount = v.findViewById(R.id.txt_home_cocina_count);
+        progMesas = v.findViewById(R.id.prog_home_mesas); // NUEVO (solo visual, Paso 3)
 
         cargarDatosResumen();
     }
@@ -68,6 +71,7 @@ public class InicioAdminFragment extends Fragment {
         txtMesasFraccion.setText(ocupadas + "/" + totalMesas);
         int porcentaje = totalMesas > 0 ? (int) Math.round((double) ocupadas / totalMesas * 100) : 0;
         txtMesasPorcentaje.setText(porcentaje + "% ocupado");
+        progMesas.setProgressCompat(porcentaje, false); // NUEVO (solo visual, Paso 3): el anillo muestra el mismo %
 
         // 3. En cocina (pendientes o en preparación)
         int enCocina = 0;

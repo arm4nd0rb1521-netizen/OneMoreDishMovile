@@ -1,7 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.Theme.OneMoreDish" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your dark theme here. -->
-        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
-    </style>
+    <!--
+      El diseño FoodSync solo tiene versión clara.
+      La app usa @style/Theme.OneMoreDish (definido en values/themes.xml
+      con padre Light), así que en modo oscuro se ve igual que en claro.
+      Este estilo Base no lo usa el Manifest; se deja con padre Light
+      para que nunca cambie a colores oscuros por accidente.
+    -->
+    <style name="Base.Theme.OneMoreDish" parent="Theme.OneMoreDish" />
 </resources>

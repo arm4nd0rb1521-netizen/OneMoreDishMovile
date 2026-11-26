@@ -1,17 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+  Paso 6 - Hoja para crear / modificar platillo.
+  IDs que usa MenuFragment.java (sin cambios): sheet_titulo, til_nombre_platillo,
+  txt_nombre_platillo, til_desc_platillo, txt_desc_platillo, til_precio_platillo,
+  txt_precio_platillo, btn_guardar_platillo
+-->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:paddingStart="24dp"
+    android:paddingStart="22dp"
     android:paddingTop="4dp"
-    android:paddingEnd="24dp"
+    android:paddingEnd="22dp"
     android:paddingBottom="28dp">
 
     <com.google.android.material.bottomsheet.BottomSheetDragHandleView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        app:tint="@color/fs_rosa_barra" />
 
     <TextView
         android:id="@+id/sheet_titulo"
@@ -84,5 +91,5 @@
         style="@style/Omd.Boton"
         android:layout_width="match_parent"
         android:layout_height="52dp"
-        android:layout_marginTop="18dp" />
+        android:layout_marginTop="20dp" />
 </LinearLayout>

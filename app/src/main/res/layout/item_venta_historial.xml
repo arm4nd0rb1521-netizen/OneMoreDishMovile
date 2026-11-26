@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+  Paso 7 - Ticket del historial (estilo FoodSync).
+  IDs que usa VentasFragment.java (NO cambiar):
+    txt_ticket_id, txt_venta_hora, txt_venta_destino, txt_venta_resumen,
+    txt_venta_comentarios, txt_venta_total
+  No hay IDs nuevos.
+-->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginTop="6dp"
@@ -7,7 +15,10 @@
     android:background="@drawable/bg_tarjeta_blanca"
     android:elevation="2dp"
     android:orientation="vertical"
-    android:padding="14dp">
+    android:outlineAmbientShadowColor="@color/fs_primario"
+    android:outlineSpotShadowColor="@color/fs_primario"
+    android:padding="16dp"
+    tools:ignore="UnusedAttribute">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -17,25 +28,27 @@
 
         <TextView
             android:id="@+id/txt_ticket_id"
-            style="@style/Omd.Titulo"
+            style="@style/Omd.TituloTarjeta"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            tools:text="#109" />
 
         <TextView
             android:id="@+id/txt_venta_hora"
-            style="@style/Omd.Etiqueta"
+            style="@style/Omd.Etiqueta.Tenue"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp" />
+            android:layout_marginEnd="8dp"
+            tools:text="19:44" />
 
         <TextView
             android:id="@+id/txt_venta_destino"
-            style="@style/Omd.Leyenda"
+            style="@style/Omd.Badge"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="12sp" />
+            tools:text="Mesa 2" />
     </LinearLayout>
 
     <TextView
@@ -51,10 +64,18 @@
         style="@style/Omd.Etiqueta"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:textColor="@color/texto_suave"
+        android:layout_marginTop="6dp"
+        android:background="@drawable/bg_badge"
+        android:padding="8dp"
+        android:textColor="@color/fs_texto"
         android:textSize="12sp"
         android:visibility="gone" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="12dp"
+        android:background="@color/fs_borde_tarjeta" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -64,20 +85,22 @@
         android:orientation="horizontal">
 
         <TextView
-            style="@style/Omd.Etiqueta"
-            android:layout_width="0dp"
+            style="@style/Omd.Badge.Disponible"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Cobrado"
-            android:textColor="@color/ok_verde"
-            android:textStyle="bold" />
+            android:text="Cobrado" />
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
 
         <TextView
             android:id="@+id/txt_venta_total"
-            style="@style/Omd.Titulo"
+            style="@style/Omd.Numero"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/vino"
-            android:textSize="18sp" />
+            android:textColor="@color/fs_primario"
+            android:textSize="20sp" />
     </LinearLayout>
 </LinearLayout>

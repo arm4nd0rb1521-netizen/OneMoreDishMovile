@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- NUEVO (Paso 3). Línea decorativa blanca de la tarjeta "Ventas de hoy" -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="260dp"
+    android:height="44dp"
+    android:viewportWidth="260"
+    android:viewportHeight="44">
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M4,36 L36,30 L70,34 L104,22 L138,26 L172,14 L206,18 L256,6"
+        android:strokeWidth="2.5"
+        android:strokeColor="#E6FFFFFF"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round" />
+</vector>

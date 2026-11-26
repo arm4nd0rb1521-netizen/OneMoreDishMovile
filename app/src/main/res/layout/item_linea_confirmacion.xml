@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+  Paso 7 - Renglón del resumen del pedido.
+  IDs que usa VentasFragment.java (NO cambiar):
+    txt_nombre_linea, txt_detalle_linea, txt_subtotal_linea, btn_quitar_linea
+-->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:gravity="center_vertical"
     android:orientation="horizontal"
-    android:paddingStart="4dp"
-    android:paddingTop="8dp"
-    android:paddingEnd="4dp"
-    android:paddingBottom="8dp">
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp">
 
     <LinearLayout
         android:layout_width="0dp"
@@ -18,36 +21,37 @@
 
         <TextView
             android:id="@+id/txt_nombre_linea"
-            style="@style/Omd.Texto"
+            style="@style/Omd.Texto.Fuerte"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textStyle="bold" />
+            android:textSize="15sp" />
 
         <TextView
             android:id="@+id/txt_detalle_linea"
             style="@style/Omd.Etiqueta"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
             android:textSize="12sp" />
     </LinearLayout>
 
     <TextView
         android:id="@+id/txt_subtotal_linea"
-        style="@style/Omd.Titulo"
+        style="@style/Omd.Texto.Fuerte"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/vino"
-        android:textSize="16sp" />
+        android:textColor="@color/fs_primario"
+        android:textSize="15sp" />
 
     <ImageButton
         android:id="@+id/btn_quitar_linea"
-        android:layout_width="32dp"
-        android:layout_height="32dp"
-        android:layout_marginStart="8dp"
-        android:background="?attr/selectableItemBackgroundBorderless"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="10dp"
+        android:background="@drawable/bg_icono_suave"
         android:contentDescription="@string/eliminar"
-        android:padding="6dp"
+        android:padding="7dp"
         android:scaleType="fitCenter"
-        android:src="@drawable/ic_logout"
-        app:tint="@color/rosa_principal" />
+        android:src="@drawable/ic_quitar"
+        app:tint="@color/fs_primario" />
 </LinearLayout>

@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+  Paso 8 - estilo FoodSync.
+  IDs que usa el Java (NO cambiar): txt_prov_avatar, txt_prov_nombre, txt_prov_producto, txt_prov_contacto
+  No hay IDs nuevos.
+-->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -6,21 +11,23 @@
     android:layout_marginBottom="6dp"
     android:background="@drawable/bg_tarjeta_blanca"
     android:elevation="2dp"
+    android:foreground="?attr/selectableItemBackground"
+    android:outlineAmbientShadowColor="@color/fs_primario"
+    android:outlineSpotShadowColor="@color/fs_primario"
     android:gravity="center_vertical"
     android:orientation="horizontal"
-    android:padding="14dp"
+    android:padding="16dp"
     android:clickable="true"
     android:focusable="true">
 
     <!-- Avatar / Emoji de perfil -->
     <TextView
         android:id="@+id/txt_prov_avatar"
-        style="@style/Omd.Titulo"
+        style="@style/Omd.Texto.Fuerte"
         android:layout_width="48dp"
         android:layout_height="48dp"
-        android:background="@drawable/circulo_crema"
+        android:background="@drawable/bg_icono_suave"
         android:gravity="center"
-        android:textColor="@color/vino"
         android:textSize="22sp" />
 
     <LinearLayout
@@ -32,11 +39,10 @@
 
         <TextView
             android:id="@+id/txt_prov_nombre"
-            style="@style/Omd.Texto"
+            style="@style/Omd.Texto.Fuerte"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+            android:textSize="15sp" />
 
         <TextView
             android:id="@+id/txt_prov_producto"
@@ -44,7 +50,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
-            android:textColor="@color/vino"
+            android:textColor="@color/fs_primario"
             android:textSize="13sp" />
 
         <TextView
@@ -53,6 +59,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="1dp"
+            android:textColor="@color/fs_texto_tenue"
             android:textSize="12sp" />
     </LinearLayout>
 </LinearLayout>

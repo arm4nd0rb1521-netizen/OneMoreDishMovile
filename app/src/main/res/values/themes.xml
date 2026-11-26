@@ -1,19 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
     <style name="Theme.OneMoreDish" parent="Theme.Material3.Light.NoActionBar">
-        <item name="colorPrimary">@color/boton</item>
+        <!-- Marca -->
+        <item name="colorPrimary">@color/fs_primario</item>
         <item name="colorOnPrimary">@color/blanco</item>
-        <item name="colorPrimaryContainer">@color/rosa_claro</item>
-        <item name="colorOnPrimaryContainer">@color/vino</item>
-        <item name="colorSecondary">@color/vino</item>
+        <item name="colorPrimaryContainer">@color/fs_badge_fondo</item>
+        <item name="colorOnPrimaryContainer">@color/fs_primario_oscuro</item>
+        <item name="colorSecondary">@color/fs_primario_oscuro</item>
         <item name="colorOnSecondary">@color/blanco</item>
-        <item name="colorSurface">@color/rosa_fondo</item>
-        <item name="colorOnSurface">@color/texto</item>
+        <item name="colorSecondaryContainer">@color/fs_rosa_icono</item>
+        <item name="colorOnSecondaryContainer">@color/fs_primario_oscuro</item>
+        <item name="colorTertiary">@color/fs_salvia_oscuro</item>
+        <item name="colorOnTertiary">@color/blanco</item>
+
+        <!-- Superficies -->
+        <item name="colorSurface">@color/fs_tarjeta</item>
+        <item name="colorOnSurface">@color/fs_texto</item>
+        <item name="colorOnSurfaceVariant">@color/fs_texto_suave</item>
+        <item name="colorSurfaceContainerLowest">@color/blanco</item>
+        <item name="colorSurfaceContainerLow">@color/fs_tarjeta</item>
+        <item name="colorSurfaceContainer">@color/blanco_suave</item>
+        <item name="colorSurfaceContainerHigh">@color/rosa_fondo</item>
+        <item name="colorSurfaceContainerHighest">@color/rosa_header</item>
+        <item name="colorOutline">@color/borde_campo</item>
+        <item name="colorOutlineVariant">@color/fs_borde_control</item>
         <item name="colorError">@color/error</item>
-        <item name="android:colorBackground">@color/rosa_fondo</item>
-        <item name="android:windowBackground">@color/rosa_fondo</item>
-        <item name="android:textColorPrimary">@color/texto</item>
+
+        <!-- Ventana -->
+        <item name="android:colorBackground">@color/fs_fondo_arriba</item>
+        <item name="android:windowBackground">@drawable/bg_pantalla</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:windowLightNavigationBar" tools:targetApi="27">true</item>
+
+        <!-- Texto -->
+        <item name="android:textColorPrimary">@color/fs_texto</item>
+        <item name="android:textColorSecondary">@color/fs_texto_suave</item>
         <item name="android:fontFamily">sans-serif</item>
+
+        <!-- Componentes por defecto -->
+        <item name="materialCardViewStyle">@style/Omd.Tarjeta</item>
         <item name="bottomSheetDialogTheme">@style/Omd.HojaTema</item>
+        <item name="popupMenuStyle">@style/Omd.Popup</item>
+        <item name="textAppearanceLargePopupMenu">@style/Omd.PopupTexto</item>
+        <item name="textAppearanceSmallPopupMenu">@style/Omd.PopupTexto</item>
     </style>
 </resources>
